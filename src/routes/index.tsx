@@ -75,7 +75,7 @@ const values = [
 
 function Hero() {
   const [i, setI] = useState(0);
-  const slide = slides[i];
+  const slide = slides[i] ?? slides[0]!;
 
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % slides.length), 6000);

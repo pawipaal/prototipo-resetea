@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="mt-24 bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo className="text-primary-foreground" />
+          <Logo onLight={false} />
           <p className="mt-4 max-w-xs text-sm opacity-80">
             Regalos que se plantan. Diseñados y fabricados en España con materiales que vuelven a
             la tierra.

@@ -5,42 +5,64 @@ import { categories } from "@/data/products";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-primary text-primary-foreground">
+    <footer className="border-t-[3px] border-forest bg-forest text-forest-foreground">
+      <div className="overflow-hidden border-b-[3px] border-cream/20 bg-amber py-3 text-amber-foreground">
+        <div className="marquee-track whitespace-nowrap font-display text-2xl uppercase md:text-4xl">
+          {[0, 1].map((k) => (
+            <span key={k} className="flex shrink-0">
+              {["Pide un deseo", "Plántalo", "Regala vida", "Resetea"].map((t) => (
+                <span key={t} className="px-6">
+                  {t} ✱
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo onLight={false} />
-          <p className="mt-4 max-w-xs text-sm opacity-80">
+          <p className="mt-4 max-w-xs text-sm opacity-85">
             Regalos que se plantan. Diseñados y fabricados en España con materiales que vuelven a
             la tierra.
           </p>
           <div className="mt-5 flex gap-3">
-            <a href="#" aria-label="Instagram" className="grid size-10 place-items-center rounded-full bg-pink text-pink-foreground transition hover:scale-110">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="sticker-oval grid size-11 place-items-center bg-amber text-amber-foreground transition hover:scale-110"
+            >
               <Instagram className="size-5" />
             </a>
-            <a href="#" aria-label="Facebook" className="grid size-10 place-items-center rounded-full bg-peri text-peri-foreground transition hover:scale-110">
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="sticker-blob grid size-11 place-items-center bg-pink text-pink-foreground transition hover:scale-110"
+            >
               <Facebook className="size-5" />
             </a>
-            <a href="#" aria-label="Email" className="grid size-10 place-items-center rounded-full bg-amber text-amber-foreground transition hover:scale-110">
+            <a
+              href="#"
+              aria-label="Email"
+              className="sticker-flower grid size-11 place-items-center bg-lilac text-lilac-foreground transition hover:scale-110"
+            >
               <Mail className="size-5" />
             </a>
           </div>
         </div>
 
         <div>
-          <h3 className="font-display text-lg">Tienda</h3>
-          <ul className="mt-4 space-y-2 text-sm opacity-80">
+          <h3 className="font-display text-xl">Tienda</h3>
+          <ul className="mt-4 space-y-2 text-sm opacity-85">
             <li>
-              <Link to="/tienda" className="hover:opacity-100 hover:underline">
+              <Link to="/tienda" className="hover:underline">
                 Ver todo
               </Link>
             </li>
             {categories.slice(0, 4).map((c) => (
               <li key={c.slug}>
-                <Link
-                  to="/categoria/$slug"
-                  params={{ slug: c.slug }}
-                  className="hover:underline"
-                >
+                <Link to="/categoria/$slug" params={{ slug: c.slug }} className="hover:underline">
                   {c.name}
                 </Link>
               </li>
@@ -49,8 +71,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-lg">Resetea</h3>
-          <ul className="mt-4 space-y-2 text-sm opacity-80">
+          <h3 className="font-display text-xl">Resetea</h3>
+          <ul className="mt-4 space-y-2 text-sm opacity-85">
             <li>
               <Link to="/nuestra-historia" className="hover:underline">
                 Nuestra historia
@@ -70,10 +92,10 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-lg">Newsletter</h3>
-          <p className="mt-4 text-sm opacity-80">Ideas que germinan, una vez al mes.</p>
+          <h3 className="font-display text-xl">Newsletter</h3>
+          <p className="mt-4 text-sm opacity-85">Ideas que germinan, una vez al mes.</p>
           <form
-            className="mt-4 flex overflow-hidden rounded-full bg-primary-foreground/10 p-1"
+            className="mt-4 flex overflow-hidden rounded-full border-2 border-cream/40 p-1"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
@@ -81,11 +103,11 @@ export function Footer() {
               required
               placeholder="tu@email.com"
               aria-label="Email"
-              className="w-full bg-transparent px-4 text-sm outline-none placeholder:text-primary-foreground/50"
+              className="w-full bg-transparent px-4 text-sm outline-none placeholder:text-forest-foreground/50"
             />
             <button
               type="submit"
-              className="rounded-full bg-lime px-4 py-2 text-sm font-bold text-lime-foreground"
+              className="rounded-full bg-amber px-4 py-2 font-display text-xs text-amber-foreground uppercase"
             >
               Unirme
             </button>
@@ -93,7 +115,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/15 py-5 text-center text-xs opacity-70">
+      <div className="border-t border-cream/15 py-5 text-center text-xs opacity-70">
         © {new Date().getFullYear()} Resetea · Aviso legal · Privacidad · Cookies
       </div>
     </footer>

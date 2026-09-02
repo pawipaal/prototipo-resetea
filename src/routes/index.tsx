@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Leaf, Recycle, Search, Sparkles, Sprout } from "lucide-react";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
+import heroResetea from "@/assets/hero-resetea-es.jpg";
 import story from "@/assets/story.jpg";
 import {
   budgetFilters,
@@ -38,7 +37,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const slides = [hero1, hero2];
+const slides = [heroResetea];
 
 const values = [
   {
@@ -169,7 +168,12 @@ function Hero() {
           </div>
         ))}
 
-        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+        <div
+          className={cn(
+            "absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2",
+            slides.length < 2 && "hidden",
+          )}
+        >
           {slides.map((s, idx) => (
             <button
               key={s}
@@ -185,25 +189,6 @@ function Hero() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Marquee() {
-  const items = ["Envío gratis desde 30 €", "Papel semilla", "Hecho en España", "Planta y florece"];
-  return (
-    <div className="overflow-hidden border-b-[3px] border-forest bg-amber py-3 text-amber-foreground">
-      <div className="marquee-track whitespace-nowrap font-display text-lg uppercase sm:text-2xl">
-        {[0, 1].map((k) => (
-          <span key={k} className="flex shrink-0">
-            {items.map((t) => (
-              <span key={t} className="px-6">
-                {t} <span className="text-forest">✱</span>
-              </span>
-            ))}
-          </span>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -302,7 +287,6 @@ function Home() {
   return (
     <main>
       <Hero />
-      <Marquee />
 
       <section className="border-b-[3px] border-forest bg-cream">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">

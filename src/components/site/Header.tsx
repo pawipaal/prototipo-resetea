@@ -5,12 +5,7 @@ import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
 
-const announcements = [
-  "Envío gratis desde 30 €",
-  "Hecho a mano en España",
-  "Papel semilla biodegradable",
-  "Regalos que florecen",
-];
+const announcements = ["Envío gratuito a península a partir de 30€ de compra ✨"];
 
 const shopNav = [
   { label: "Ver todo", slug: undefined },
@@ -181,9 +176,9 @@ export function Header() {
         <div className="marquee-track-fast whitespace-nowrap font-display text-sm uppercase">
           {[0, 1].map((k) => (
             <span key={k} className="flex shrink-0">
-              {announcements.map((a) => (
-                <span key={a} className="px-5">
-                  {a} <span className="text-amber">✱</span>
+              {Array.from({ length: 6 }, (_, i) => (
+                <span key={i} className="px-5">
+                  {announcements[0]} <span className="text-amber">✱</span>
                 </span>
               ))}
             </span>

@@ -88,7 +88,7 @@
 
   --brand-lilac: #c9b6ff;
   --brand-lilac-deep: #ab8dff;
-  --brand-forest: #0b3b24;
+  --brand-forest: #3a2518;
   --brand-yellow: #f2d024;
   --brand-yellow-deep: #e0b400;
   --brand-pink: #fbb8dd;
@@ -96,52 +96,52 @@
   --brand-cream: #fdf9f0;
 
   --background: #fdf9f0;
-  --foreground: #0b3b24;
+  --foreground: #3a2518;
   --card: #ffffff;
-  --card-foreground: #0b3b24;
+  --card-foreground: #3a2518;
   --popover: #ffffff;
-  --popover-foreground: #0b3b24;
-  --primary: #0b3b24;
+  --popover-foreground: #3a2518;
+  --primary: #3a2518;
   --primary-foreground: #fdf9f0;
   --secondary: #f2ecdd;
-  --secondary-foreground: #0b3b24;
+  --secondary-foreground: #3a2518;
   --muted: #f2ecdd;
   --muted-foreground: #4e6b5c;
   --accent: #c9b6ff;
-  --accent-foreground: #0b3b24;
+  --accent-foreground: #3a2518;
   --destructive: oklch(0.6 0.23 25);
   --destructive-foreground: #fdf9f0;
-  --border: #0b3b24;
-  --input: #0b3b24;
-  --ring: #0b3b24;
+  --border: #3a2518;
+  --input: #3a2518;
+  --ring: #3a2518;
 
   --sidebar: #fdf9f0;
-  --sidebar-foreground: #0b3b24;
-  --sidebar-primary: #0b3b24;
+  --sidebar-foreground: #3a2518;
+  --sidebar-primary: #3a2518;
   --sidebar-primary-foreground: #fdf9f0;
   --sidebar-accent: #c9b6ff;
-  --sidebar-accent-foreground: #0b3b24;
-  --sidebar-border: #0b3b24;
-  --sidebar-ring: #0b3b24;
+  --sidebar-accent-foreground: #3a2518;
+  --sidebar-border: #3a2518;
+  --sidebar-ring: #3a2518;
 
   --shadow-pop: 6px 6px 0 var(--brand-forest);
 }
 
 .dark {
-  --background: #0b3b24;
+  --background: #3a2518;
   --foreground: #fdf9f0;
   --card: #12503050;
   --card-foreground: #fdf9f0;
   --popover: #0f4a2d;
   --popover-foreground: #fdf9f0;
   --primary: #fdf9f0;
-  --primary-foreground: #0b3b24;
+  --primary-foreground: #3a2518;
   --secondary: #12502f;
   --secondary-foreground: #fdf9f0;
   --muted: #12502f;
   --muted-foreground: #b7d0c1;
   --accent: #c9b6ff;
-  --accent-foreground: #0b3b24;
+  --accent-foreground: #3a2518;
   --border: #fdf9f033;
   --input: #fdf9f033;
   --ring: #c9b6ff;

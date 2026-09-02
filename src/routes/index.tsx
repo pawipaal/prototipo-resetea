@@ -116,13 +116,12 @@ function Hero() {
             src={slides[i] ?? slides[0]}
             alt="Regalos plantables Resetea"
             initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 0.85, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 size-full object-cover mix-blend-luminosity"
+            className="absolute inset-0 size-full object-cover"
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-lilac/35" aria-hidden />
 
         <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[720px]">
           <motion.h1

@@ -13,16 +13,15 @@ export function Logo({
   onLight?: boolean;
 }) {
   return (
-    <Link
-      to="/"
-      className={cn("group inline-flex items-center", className)}
-      aria-label="Resetea, inicio"
-    >
+    <Link to="/" className="group inline-flex items-center" aria-label="Resetea, inicio">
       {variant === "symbol" ? (
         <img
           src={logoSymbol.url}
           alt="Resetea"
-          className="h-10 w-auto transition-transform duration-300 group-hover:rotate-12 sm:h-11"
+          className={cn(
+            "h-10 w-auto transition-transform duration-300 group-hover:rotate-12 sm:h-11",
+            className,
+          )}
           loading="eager"
         />
       ) : (
@@ -32,6 +31,7 @@ export function Logo({
           className={cn(
             "h-12 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-14",
             !onLight && "rounded-xl bg-background px-3 py-1.5",
+            className,
           )}
           loading="eager"
         />

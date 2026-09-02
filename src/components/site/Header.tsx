@@ -46,7 +46,7 @@ export function Header() {
             <Logo className="h-20 shrink-0 sm:h-24" />
           </div>
 
-          <label className="mx-2 hidden w-full max-w-3xl items-center gap-2 justify-self-center rounded-full border-2 border-forest bg-white px-5 py-2.5 sm:flex md:mx-6">
+          <label className="mx-2 hidden w-full max-w-3xl items-center gap-2 justify-self-center rounded-full bg-white px-5 py-2.5 sm:flex md:mx-6">
             <input
               type="search"
               placeholder="Busca un regalo: kit de cultivo, lápiz…"

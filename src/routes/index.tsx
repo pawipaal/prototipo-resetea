@@ -1,7 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Leaf, Recycle, Search, Sparkles, Sprout } from "lucide-react";
+import { motion } from "motion/react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Leaf,
+  Recycle,
+  Search,
+  Sparkles,
+  Sprout,
+} from "lucide-react";
 import heroResetea from "@/assets/hero-resetea-es.jpg";
 import story from "@/assets/story.jpg";
 import { budgetFilters, categories, occasionFilters, products, typeFilters } from "@/data/products";
@@ -67,27 +76,34 @@ const values = [
 function Hero() {
   const [i, setI] = useState(0);
 
-  useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % slides.length), 6000);
-    return () => clearInterval(t);
-  }, []);
+  const go = (dir: 1 | -1) => setI((v) => (v + dir + slides.length) % slides.length);
 
   return (
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
-      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac">
+      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem]">
         <div className="relative min-h-[480px] md:min-h-[640px]">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={slides[i]}
-              src={slides[i] ?? slides[0]}
-              alt="Regalos plantables Resetea"
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 size-full object-cover"
-            />
-          </AnimatePresence>
+          <img
+            src={slides[i] ?? slides[0]}
+            alt="Regalos plantables Resetea"
+            className="absolute inset-0 size-full object-cover"
+          />
+
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label="Imagen anterior"
+            className="absolute top-1/2 left-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-forest text-forest-foreground transition hover:scale-110 sm:left-6"
+          >
+            <ChevronLeft className="size-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label="Imagen siguiente"
+            className="absolute top-1/2 right-4 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-forest text-forest-foreground transition hover:scale-110 sm:right-6"
+          >
+            <ChevronRight className="size-5" />
+          </button>
 
           <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left sm:pl-[48%] md:min-h-[640px] md:px-12 md:pl-[48%]">
             <motion.h1

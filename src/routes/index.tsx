@@ -89,7 +89,7 @@ function Hero() {
             />
           </AnimatePresence>
 
-          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left md:min-h-[640px] md:px-12">
+          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left sm:pl-[48%] md:min-h-[640px] md:px-12 md:pl-[48%]">
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}

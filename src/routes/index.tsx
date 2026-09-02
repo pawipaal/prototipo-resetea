@@ -4,13 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Leaf, Recycle, Search, Sparkles, Sprout } from "lucide-react";
 import heroResetea from "@/assets/hero-resetea-es.jpg";
 import story from "@/assets/story.jpg";
-import {
-  budgetFilters,
-  categories,
-  occasionFilters,
-  products,
-  typeFilters,
-} from "@/data/products";
+import { budgetFilters, categories, occasionFilters, products, typeFilters } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
 import { Sticker } from "@/components/site/Sticker";
@@ -70,34 +64,6 @@ const values = [
   },
 ];
 
-const heroStickers = [
-  {
-    to: "/tienda" as const,
-    label: "Ver\ntienda",
-    shape: "oval" as const,
-    color: "yellow" as const,
-    rotate: -8,
-    className: "left-[6%] top-[18%] w-32 h-32 sm:w-40 sm:h-40",
-  },
-  {
-    to: "/categoria/$slug" as const,
-    params: { slug: categories[0]?.slug ?? "kits" },
-    label: "Kits de\nsiembra",
-    shape: "flower" as const,
-    color: "pink" as const,
-    rotate: 6,
-    className: "right-[8%] top-[12%] w-32 h-32 sm:w-40 sm:h-40",
-  },
-  {
-    to: "/nuestra-historia" as const,
-    label: "Nuestra\nhistoria",
-    shape: "slant" as const,
-    color: "cream" as const,
-    rotate: -3,
-    className: "right-[14%] bottom-[12%] w-40 h-20 sm:w-52 sm:h-24",
-  },
-];
-
 function Hero() {
   const [i, setI] = useState(0);
 
@@ -107,85 +73,68 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate overflow-hidden border-b-[3px] border-forest bg-lilac">
-      <div className="relative min-h-[560px] md:min-h-[720px]">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={slides[i]}
-            src={slides[i] ?? slides[0]}
-            alt="Regalos plantables Resetea"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 size-full object-cover"
-          />
-        </AnimatePresence>
+    <section className="bg-background px-4 py-6 md:px-8 md:py-10">
+      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border-[3px] border-forest bg-lilac">
+        <div className="relative min-h-[480px] md:min-h-[640px]">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={slides[i]}
+              src={slides[i] ?? slides[0]}
+              alt="Regalos plantables Resetea"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 size-full object-cover"
+            />
+          </AnimatePresence>
 
-        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[720px]">
-          <motion.h1
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl font-display text-5xl text-forest sm:text-7xl lg:text-8xl"
-          >
-            Pide un deseo
-            <br />y plántalo
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="mt-6 max-w-md text-base font-semibold text-forest sm:text-lg"
-          >
-            Regalos que se plantan, crecen y se recuerdan. Papel semilla y kits hechos a mano en
-            España.
-          </motion.p>
-          <Link
-            to="/tienda"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
-          >
-            Comprar ahora <ArrowRight className="size-4" />
-          </Link>
-        </div>
-
-        {heroStickers.map((s) => (
-          <div key={s.label} className={cn("absolute hidden lg:block", s.className)}>
-            <Link
-              to={s.to}
-              params={s.params as never}
-              className="block size-full float-soft focus-visible:outline-none"
+          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[640px]">
+            <motion.h1
+              initial={{ opacity: 0, y: 26 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-4xl font-display text-5xl text-forest sm:text-7xl lg:text-8xl"
             >
-              <Sticker
-                shape={s.shape}
-                color={s.color}
-                rotate={s.rotate}
-                className="size-full border-[3px] border-forest whitespace-pre-line"
-              >
-                {s.label}
-              </Sticker>
+              Pide un deseo
+              <br />y plántalo
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="mt-6 max-w-md text-base font-semibold text-forest sm:text-lg"
+            >
+              Regalos que se plantan, crecen y se recuerdan. Papel semilla y kits hechos a mano en
+              España.
+            </motion.p>
+            <Link
+              to="/tienda"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            >
+              Comprar ahora <ArrowRight className="size-4" />
             </Link>
           </div>
-        ))}
 
-        <div
-          className={cn(
-            "absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2",
-            slides.length < 2 && "hidden",
-          )}
-        >
-          {slides.map((s, idx) => (
-            <button
-              key={s}
-              type="button"
-              aria-label={`Imagen ${idx + 1}`}
-              onClick={() => setI(idx)}
-              className={cn(
-                "h-2.5 rounded-full border-2 border-forest transition-all",
-                idx === i ? "w-8 bg-forest" : "w-2.5 bg-transparent",
-              )}
-            />
-          ))}
+          <div
+            className={cn(
+              "absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2",
+              slides.length < 2 && "hidden",
+            )}
+          >
+            {slides.map((s, idx) => (
+              <button
+                key={s}
+                type="button"
+                aria-label={`Imagen ${idx + 1}`}
+                onClick={() => setI(idx)}
+                className={cn(
+                  "h-2.5 rounded-full border-2 border-forest transition-all",
+                  idx === i ? "w-8 bg-forest" : "w-2.5 bg-transparent",
+                )}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -74,7 +74,7 @@ function Hero() {
 
   return (
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
-      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border-[3px] border-forest bg-lilac">
+      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac">
         <div className="relative min-h-[480px] md:min-h-[640px]">
           <AnimatePresence mode="wait">
             <motion.img
@@ -89,30 +89,29 @@ function Hero() {
             />
           </AnimatePresence>
 
-          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[640px]">
+          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left md:min-h-[640px] md:px-12">
             <motion.h1
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl font-display text-5xl text-forest sm:text-7xl lg:text-8xl"
+              className="max-w-4xl font-display text-5xl text-white sm:text-7xl lg:text-8xl"
             >
               Pide un deseo
-              <br />y plántalo
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.6 }}
-              className="mt-6 max-w-md text-base font-semibold text-forest sm:text-lg"
+              className="mt-6 max-w-md text-base font-semibold text-white sm:text-lg"
             >
-              Regalos que se plantan, crecen y se recuerdan. Papel semilla y kits hechos a mano en
-              España.
+              Cultiva tu diente de león en casa con este kit completo y espera a que llegue el
+              momento de soplar y pedir un deseo.
             </motion.p>
             <Link
               to="/tienda"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
             >
-              Comprar ahora <ArrowRight className="size-4" />
+              Comprar ahora
             </Link>
           </div>
 

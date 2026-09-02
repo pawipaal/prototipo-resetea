@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
 
-const announcements = ["Envío gratuito a península a partir de 30€ de compra ✨"];
+const announcements = ["Envío gratuito a península a partir de 30€ de compra"];
 
 const shopNav = [
   { label: "Ver todo", slug: undefined },
@@ -41,14 +41,23 @@ export function Header() {
             <Logo className="h-10 shrink-0 sm:h-10" />
           </div>
 
-          <label className="mx-2 hidden w-full max-w-3xl items-center gap-2 justify-self-center rounded-full bg-white px-5 py-2.5 sm:flex md:mx-6">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="mx-2 hidden w-full max-w-3xl items-center justify-self-center rounded-full bg-white py-1 pr-1 pl-5 sm:flex md:mx-6"
+          >
             <input
               type="search"
               placeholder="Busca un regalo: kit de cultivo, lápiz…"
               className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
             />
-            <Search className="size-5 shrink-0" />
-          </label>
+            <button
+              type="submit"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-display text-[13px] uppercase tracking-tight text-amber-foreground hover:opacity-90"
+            >
+              <Search className="size-4" />
+              Buscar
+            </button>
+          </form>
 
           <div className="flex shrink-0 items-center gap-3 justify-self-end sm:gap-4">
             <a
@@ -80,14 +89,23 @@ export function Header() {
         </div>
 
         <div className={cn("mx-auto max-w-7xl px-4 pb-4 lg:hidden", menu ? "block" : "hidden")}>
-          <label className="flex items-center gap-2 rounded-full border-2 border-forest bg-white px-4 py-2.5 sm:hidden">
-            <Search className="size-4" />
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex items-center rounded-full border-2 border-forest bg-white py-1 pr-1 pl-4 sm:hidden"
+          >
             <input
               type="search"
               placeholder="Busca un regalo: kit de cultivo, lápiz…"
               className="w-full bg-transparent text-sm outline-none"
             />
-          </label>
+            <button
+              type="submit"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-amber px-4 py-2 font-display text-xs uppercase tracking-tight text-amber-foreground hover:opacity-90"
+            >
+              <Search className="size-4" />
+              Buscar
+            </button>
+          </form>
           <ul className="mt-3 flex flex-col gap-1">
             <li>
               <a

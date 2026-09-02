@@ -31,7 +31,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full">
       {/* Fila 1: logo, buscador, cuenta y cesta */}
-      <div className="border-b-[3px] border-forest bg-cream text-forest">
+      <div className="border-b-[3px] border-forest bg-lilac text-forest">
         <div className="mx-auto grid min-h-28 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
           <div className="flex items-center gap-3 lg:justify-self-start">
             <button

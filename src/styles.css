@@ -203,11 +203,6 @@
 
 @utility tint-lilac {
   background-color: var(--brand-lilac);
-
-  & > img {
-    mix-blend-mode: luminosity;
-    opacity: 0.85;
-  }
 }
 
 @utility blob-mask {

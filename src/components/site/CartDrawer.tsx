@@ -28,7 +28,7 @@ export function CartDrawer() {
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 320, damping: 34 }}
           >
-            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+            <div className="flex items-center justify-between px-5 py-4">
               <h2 className="font-display text-xl">Tu cesta</h2>
               <button
                 type="button"
@@ -108,7 +108,7 @@ export function CartDrawer() {
                   ))}
                 </div>
 
-                <div className="space-y-2 border-t border-border px-5 py-4 text-sm">
+                <div className="space-y-2 px-5 py-4 text-sm">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
                     <span>{formatPrice(subtotal)}</span>

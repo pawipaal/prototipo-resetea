@@ -33,7 +33,7 @@ export function Header() {
               type="button"
               onClick={() => setMenu((v) => !v)}
               aria-label="Abrir menú"
-              className="grid size-10 shrink-0 place-items-center rounded-full border-2 border-forest lg:hidden"
+              className="grid size-10 shrink-0 place-items-center rounded-full lg:hidden"
             >
               {menu ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -90,7 +90,7 @@ export function Header() {
         <div className={cn("mx-auto max-w-7xl px-4 pb-4 lg:hidden", menu ? "block" : "hidden")}>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex items-center rounded-full border-2 border-forest bg-white py-1 pr-1 pl-4 sm:hidden"
+            className="flex items-center rounded-full bg-white py-1 pr-1 pl-4 sm:hidden"
           >
             <input
               type="search"
@@ -106,11 +106,7 @@ export function Header() {
           </form>
           <ul className="mt-3 flex flex-col gap-1">
             <li>
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className={cn(navLink, "block py-2")}
-              >
+              <a href="#" onClick={(e) => e.preventDefault()} className={cn(navLink, "block py-2")}>
                 Inicia sesión
               </a>
             </li>
@@ -159,7 +155,7 @@ export function Header() {
       </div>
 
       {/* Fila 2: navegación de tienda, tipo Amazon */}
-      <nav className="hidden border-b-[3px] border-forest bg-background lg:block">
+      <nav className="hidden bg-background lg:block">
         <div className="mx-auto max-w-7xl px-4">
           <ul className="flex items-center justify-center gap-7 py-2">
             {shopNav.map((item) => (
@@ -188,7 +184,7 @@ export function Header() {
         </div>
       </nav>
 
-      <div className="overflow-hidden border-b-[3px] border-forest bg-forest py-2 text-forest-foreground">
+      <div className="overflow-hidden bg-forest py-2 text-forest-foreground">
         <div className="marquee-track-fast whitespace-nowrap font-display text-sm uppercase">
           {[0, 1].map((k) => (
             <span key={k} className="flex shrink-0">

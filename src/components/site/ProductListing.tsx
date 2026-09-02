@@ -31,10 +31,8 @@ export function ProductListing({ items }: { items: Product[] }) {
 
   const chip = (active: boolean) =>
     cn(
-      "rounded-full border px-4 py-2 text-sm font-semibold transition",
-      active
-        ? "scale-105 border-pink bg-pink text-pink-foreground"
-        : "border-border bg-card hover:border-pink hover:text-pink",
+      "rounded-full px-4 py-2 text-sm font-semibold transition",
+      active ? "scale-105 bg-pink text-pink-foreground" : "bg-card hover:text-pink",
     );
 
   return (
@@ -86,7 +84,7 @@ export function ProductListing({ items }: { items: Product[] }) {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as Sort)}
-              className="rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold outline-none"
+              className="rounded-full bg-card px-3 py-2 text-sm font-semibold outline-none"
             >
               <option value="destacados">Destacados</option>
               <option value="precio-asc">Precio: menor a mayor</option>

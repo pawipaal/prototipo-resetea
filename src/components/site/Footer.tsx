@@ -5,8 +5,8 @@ import { categories } from "@/data/products";
 
 export function Footer() {
   return (
-    <footer className="border-t-[3px] border-forest bg-forest text-forest-foreground">
-      <div className="overflow-hidden border-b-[3px] border-cream/20 bg-amber py-3 text-amber-foreground">
+    <footer className="bg-forest text-forest-foreground">
+      <div className="overflow-hidden bg-amber py-3 text-amber-foreground">
         <div className="marquee-track whitespace-nowrap font-display text-2xl uppercase md:text-4xl">
           {[0, 1].map((k) => (
             <span key={k} className="flex shrink-0">
@@ -24,8 +24,8 @@ export function Footer() {
         <div>
           <Logo onLight={false} />
           <p className="mt-4 max-w-xs text-sm opacity-85">
-            Regalos que se plantan. Diseñados y fabricados en España con materiales que vuelven a
-            la tierra.
+            Regalos que se plantan. Diseñados y fabricados en España con materiales que vuelven a la
+            tierra.
           </p>
           <div className="mt-5 flex gap-3">
             <a
@@ -95,7 +95,7 @@ export function Footer() {
           <h3 className="font-display text-xl">Newsletter</h3>
           <p className="mt-4 text-sm opacity-85">Ideas que germinan, una vez al mes.</p>
           <form
-            className="mt-4 flex overflow-hidden rounded-full border-2 border-cream/40 p-1"
+            className="mt-4 flex overflow-hidden rounded-full p-1"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
@@ -115,7 +115,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-cream/15 py-5 text-center text-xs opacity-70">
+      <div className="py-5 text-center text-xs opacity-70">
         © {new Date().getFullYear()} Resetea · Aviso legal · Privacidad · Cookies
       </div>
     </footer>

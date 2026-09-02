@@ -47,7 +47,7 @@ function Contacto() {
               name="mensaje"
               required
               rows={5}
-              className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm font-normal outline-none focus:border-pink"
+              className="mt-1 w-full rounded-2xl bg-background px-4 py-3 text-sm font-normal outline-none"
             />
           </label>
           <button
@@ -83,7 +83,7 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         name={name}
         type={type}
         required
-        className="mt-1 w-full rounded-full border border-border bg-background px-4 py-2.5 text-sm font-normal outline-none focus:border-pink"
+        className="mt-1 w-full rounded-full bg-background px-4 py-2.5 text-sm font-normal outline-none"
       />
     </label>
   );

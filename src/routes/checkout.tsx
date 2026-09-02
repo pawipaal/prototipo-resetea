@@ -137,7 +137,7 @@ function Checkout() {
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="rounded-full border border-border px-5 py-3 font-semibold"
+                className="rounded-full px-5 py-3 font-semibold"
               >
                 Atrás
               </button>
@@ -163,7 +163,7 @@ function Checkout() {
               </li>
             ))}
           </ul>
-          <dl className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
+          <dl className="mt-4 space-y-2 pt-4 text-sm">
             <div className="flex justify-between">
               <dt>Subtotal</dt>
               <dd>{formatPrice(subtotal)}</dd>
@@ -191,7 +191,7 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         name={name}
         type={type}
         required
-        className="mt-1 w-full rounded-full border border-border bg-background px-4 py-2.5 text-sm font-normal outline-none focus:border-pink"
+        className="mt-1 w-full rounded-full bg-background px-4 py-2.5 text-sm font-normal outline-none"
       />
     </label>
   );

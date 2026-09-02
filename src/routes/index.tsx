@@ -144,8 +144,8 @@ function Hero() {
                 aria-label={`Imagen ${idx + 1}`}
                 onClick={() => setI(idx)}
                 className={cn(
-                  "h-2.5 rounded-full border-2 border-forest transition-all",
-                  idx === i ? "w-8 bg-forest" : "w-2.5 bg-transparent",
+                  "h-2.5 rounded-full transition-all",
+                  idx === i ? "w-8 bg-forest" : "w-2.5 bg-forest/30",
                 )}
               />
             ))}
@@ -163,7 +163,7 @@ function SectionTitle({ children, to }: { children: string; to?: "/tienda" }) {
       {to ? (
         <Link
           to={to}
-          className="rounded-full border-[3px] border-forest px-5 py-2 font-display text-xs uppercase transition hover:bg-forest hover:text-forest-foreground"
+          className="rounded-full px-5 py-2 font-display text-xs uppercase transition hover:bg-forest hover:text-forest-foreground"
         >
           Ver todo
         </Link>
@@ -179,7 +179,7 @@ function GiftFinder() {
 
   const chip = (active: boolean) =>
     cn(
-      "rounded-full border-[3px] border-forest px-4 py-2 font-display text-xs uppercase transition",
+      "rounded-full px-4 py-2 font-display text-xs uppercase transition",
       active ? "bg-forest text-forest-foreground scale-105" : "bg-cream hover:bg-amber",
     );
 
@@ -195,7 +195,7 @@ function GiftFinder() {
   ];
 
   return (
-    <section className="border-y-[3px] border-forest bg-lilac text-forest">
+    <section className="bg-lilac text-forest">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
         <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
           Encuentra el regalo perfecto
@@ -204,7 +204,7 @@ function GiftFinder() {
           Dinos para quién es y te enseñamos lo que más florece.
         </p>
 
-        <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full border-[3px] border-forest bg-cream px-5 py-3.5">
+        <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full bg-cream px-5 py-3.5">
           <Search className="size-4" />
           <input
             type="search"
@@ -235,7 +235,7 @@ function GiftFinder() {
 
         <Link
           to="/tienda"
-          className="mt-10 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+          className="mt-10 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
         >
           Ver resultados <ArrowRight className="size-4" />
         </Link>
@@ -252,7 +252,7 @@ function Home() {
     <main>
       <Hero />
 
-      <section className="border-b-[3px] border-forest bg-cream">
+      <section className="bg-cream">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal key={v.label} delay={i * 0.08} className="text-center">
@@ -260,7 +260,7 @@ function Home() {
                 shape={v.shape}
                 color={v.color}
                 rotate={i % 2 ? 5 : -5}
-                className="mx-auto size-28 border-[3px] border-forest"
+                className="mx-auto size-28"
               >
                 <v.icon className="size-10 text-forest" />
               </Sticker>
@@ -271,7 +271,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-b-[3px] border-forest bg-background">
+      <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle to="/tienda">Novedades</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -282,7 +282,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-b-[3px] border-forest bg-pink text-pink-foreground">
+      <section className="bg-pink text-pink-foreground">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle to="/tienda">Súper ventas</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -295,7 +295,7 @@ function Home() {
 
       <GiftFinder />
 
-      <section className="border-b-[3px] border-forest bg-cream">
+      <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle>Compra por categoría</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -304,7 +304,7 @@ function Home() {
                 <Link
                   to="/categoria/$slug"
                   params={{ slug: c.slug }}
-                  className="group relative block overflow-hidden rounded-3xl border-[3px] border-forest"
+                  className="group relative block overflow-hidden rounded-3xl"
                 >
                   <div className="tint-lilac relative aspect-[4/3] overflow-hidden">
                     <img
@@ -318,7 +318,7 @@ function Home() {
                   </div>
                   <span
                     className={cn(
-                      "sticker-oval absolute bottom-4 left-4 border-[3px] border-forest px-5 py-3 font-display text-sm uppercase transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
+                      "sticker-oval absolute bottom-4 left-4 px-5 py-3 font-display text-sm uppercase transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
                       i % 3 === 0
                         ? "bg-amber text-amber-foreground"
                         : i % 3 === 1
@@ -335,7 +335,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-b-[3px] border-forest bg-forest text-forest-foreground">
+      <section className="bg-forest text-forest-foreground">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2">
           <Reveal>
             <img
@@ -344,7 +344,7 @@ function Home() {
               loading="lazy"
               width={1000}
               height={1000}
-              className="blob-mask aspect-square w-full border-[3px] border-cream object-cover"
+              className="blob-mask aspect-square w-full object-cover"
             />
           </Reveal>
           <Reveal delay={0.1}>
@@ -356,7 +356,7 @@ function Home() {
             </p>
             <Link
               to="/nuestra-historia"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-cream bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
             >
               Leer más <ArrowRight className="size-4" />
             </Link>
@@ -365,29 +365,26 @@ function Home() {
       </section>
 
       <section className="grid md:grid-cols-2">
-        <Reveal className="border-b-[3px] border-forest bg-amber px-6 py-16 text-amber-foreground md:border-r-[3px] md:px-12">
+        <Reveal className="bg-amber px-6 py-16 text-amber-foreground md:px-12">
           <h3 className="font-display text-3xl uppercase sm:text-5xl">¿Tienes una tienda?</h3>
           <p className="mt-3 max-w-sm font-semibold">
             Vende Resetea en tu espacio con condiciones mayoristas.
           </p>
           <Link
             to="/contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
           >
             Hablemos <ArrowRight className="size-4" />
           </Link>
         </Reveal>
-        <Reveal
-          delay={0.08}
-          className="border-b-[3px] border-forest bg-pink px-6 py-16 text-pink-foreground md:px-12"
-        >
+        <Reveal delay={0.08} className="bg-pink px-6 py-16 text-pink-foreground md:px-12">
           <h3 className="font-display text-3xl uppercase sm:text-5xl">Personalizados</h3>
           <p className="mt-3 max-w-sm font-semibold">
             Personalizamos semillas, mensajes y packaging para tu marca o evento.
           </p>
           <Link
             to="/contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
           >
             Pide presupuesto <ArrowRight className="size-4" />
           </Link>

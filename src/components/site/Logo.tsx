@@ -22,7 +22,7 @@ export function Logo({
         <img
           src={logoSymbol.url}
           alt="Resetea"
-          className="h-9 w-auto transition-transform duration-300 group-hover:rotate-12"
+          className="h-10 w-auto transition-transform duration-300 group-hover:rotate-12 sm:h-11"
           loading="eager"
         />
       ) : (
@@ -30,7 +30,7 @@ export function Logo({
           src={logoHorizontal.url}
           alt="Resetea"
           className={cn(
-            "h-9 w-auto transition-transform duration-300 group-hover:scale-105",
+            "h-12 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-14",
             !onLight && "rounded-xl bg-background px-3 py-1.5",
           )}
           loading="eager"

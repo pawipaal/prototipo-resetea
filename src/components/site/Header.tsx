@@ -32,19 +32,21 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full">
       {/* Fila 1: logo, buscador, cuenta y cesta */}
       <div className="border-b-[3px] border-forest bg-cream text-forest">
-        <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-4 px-4 py-3">
-          <button
-            type="button"
-            onClick={() => setMenu((v) => !v)}
-            aria-label="Abrir menú"
-            className="grid size-10 shrink-0 place-items-center rounded-full border-2 border-forest lg:hidden"
-          >
-            {menu ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+        <div className="mx-auto grid min-h-24 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-3 lg:grid-cols-[1fr_auto_1fr]">
+          <div className="flex items-center gap-3 lg:justify-self-start">
+            <button
+              type="button"
+              onClick={() => setMenu((v) => !v)}
+              aria-label="Abrir menú"
+              className="grid size-10 shrink-0 place-items-center rounded-full border-2 border-forest lg:hidden"
+            >
+              {menu ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
 
-          <Logo className="h-14 shrink-0 sm:h-16" />
+            <Logo className="h-16 shrink-0 sm:h-20" />
+          </div>
 
-          <label className="mx-2 hidden flex-1 items-center gap-2 rounded-full border-2 border-forest bg-white px-5 py-3 sm:flex md:mx-6">
+          <label className="mx-2 hidden w-full max-w-xl items-center gap-2 justify-self-center rounded-full border-2 border-forest bg-white px-5 py-3 sm:flex md:mx-6">
             <input
               type="search"
               placeholder="Busca un regalo: kit de cultivo, lápiz…"
@@ -53,7 +55,7 @@ export function Header() {
             <Search className="size-5 shrink-0" />
           </label>
 
-          <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4">
+          <div className="flex shrink-0 items-center gap-3 justify-self-end sm:gap-4">
             <a
               href="#"
               onClick={(e) => e.preventDefault()}
@@ -148,7 +150,7 @@ export function Header() {
       {/* Fila 2: navegación de tienda, tipo Amazon */}
       <nav className="hidden border-b-[3px] border-forest bg-background lg:block">
         <div className="mx-auto max-w-7xl px-4">
-          <ul className="flex items-center gap-7 py-3">
+          <ul className="flex items-center justify-center gap-7 py-3">
             {shopNav.map((item) => (
               <li key={item.label}>
                 {item.slug ? (

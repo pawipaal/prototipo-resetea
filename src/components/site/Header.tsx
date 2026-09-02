@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
@@ -52,9 +52,8 @@ export function Header() {
             />
             <button
               type="submit"
-              className="flex shrink-0 items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-display text-[13px] uppercase tracking-tight text-amber-foreground hover:opacity-90"
+              className="shrink-0 rounded-full bg-amber px-5 py-2 font-display text-[13px] uppercase tracking-tight text-amber-foreground hover:opacity-90"
             >
-              <Search className="size-4" />
               Buscar
             </button>
           </form>
@@ -100,9 +99,8 @@ export function Header() {
             />
             <button
               type="submit"
-              className="flex shrink-0 items-center gap-1.5 rounded-full bg-amber px-4 py-2 font-display text-xs uppercase tracking-tight text-amber-foreground hover:opacity-90"
+              className="shrink-0 rounded-full bg-amber px-4 py-2 font-display text-xs uppercase tracking-tight text-amber-foreground hover:opacity-90"
             >
-              <Search className="size-4" />
               Buscar
             </button>
           </form>

@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Leaf,
-  Recycle,
-  Search,
-  Sparkles,
-  Sprout,
-} from "lucide-react";
+import { ArrowRight, Leaf, Recycle, Search, Sparkles, Sprout } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import story from "@/assets/story.jpg";
@@ -23,8 +14,7 @@ import {
 } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
-import { Wave } from "@/components/site/Wave";
-import { accentBg, accentText } from "@/components/site/accents";
+import { Sticker } from "@/components/site/Sticker";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -39,8 +29,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Resetea — Regalos plantables que florecen" },
       {
         property: "og:description",
-        content:
-          "Kits de siembra, papelería plantable y regalos ecológicos hechos en España.",
+        content: "Kits de siembra, papelería plantable y regalos ecológicos hechos en España.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,33 +38,69 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const slides = [
+const slides = [hero1, hero2];
+
+const values = [
   {
-    image: hero1,
-    kicker: "Nueva colección",
-    title: "Pide un deseo",
-    text: "Regalos que se plantan, crecen y se recuerdan. Papel semilla y kits hechos a mano.",
-    accent: "pink" as const,
+    icon: Recycle,
+    label: "Sostenibles",
+    text: "Materiales que vuelven a la tierra",
+    color: "yellow" as const,
+    shape: "blob" as const,
   },
   {
-    image: hero2,
-    kicker: "Súper ventas",
-    title: "Siembra alegría",
-    text: "Detalles originales para bodas, empresas y personas que cuidan del planeta.",
-    accent: "lime" as const,
+    icon: Leaf,
+    label: "Naturales",
+    text: "Semillas ecológicas certificadas",
+    color: "pink" as const,
+    shape: "flower" as const,
+  },
+  {
+    icon: Sparkles,
+    label: "Originales",
+    text: "Diseño propio, hecho a mano",
+    color: "lilac" as const,
+    shape: "oval" as const,
+  },
+  {
+    icon: Sprout,
+    label: "Responsables",
+    text: "Producción local en España",
+    color: "cream" as const,
+    shape: "arch" as const,
   },
 ];
 
-const values = [
-  { icon: Recycle, label: "Sostenibles", text: "Materiales que vuelven a la tierra", accent: "lime" as const },
-  { icon: Leaf, label: "Naturales", text: "Semillas ecológicas certificadas", accent: "sky" as const },
-  { icon: Sparkles, label: "Originales", text: "Diseño propio, hecho a mano", accent: "pink" as const },
-  { icon: Sprout, label: "Responsables", text: "Producción local en España", accent: "amber" as const },
+const heroStickers = [
+  {
+    to: "/tienda" as const,
+    label: "Ver\ntienda",
+    shape: "oval" as const,
+    color: "yellow" as const,
+    rotate: -8,
+    className: "left-[6%] top-[18%] w-32 h-32 sm:w-40 sm:h-40",
+  },
+  {
+    to: "/categoria/$slug" as const,
+    params: { slug: categories[0]?.slug ?? "kits" },
+    label: "Kits de\nsiembra",
+    shape: "flower" as const,
+    color: "pink" as const,
+    rotate: 6,
+    className: "right-[8%] top-[12%] w-32 h-32 sm:w-40 sm:h-40",
+  },
+  {
+    to: "/nuestra-historia" as const,
+    label: "Nuestra\nhistoria",
+    shape: "slant" as const,
+    color: "cream" as const,
+    rotate: -3,
+    className: "right-[14%] bottom-[12%] w-40 h-20 sm:w-52 sm:h-24",
+  },
 ];
 
 function Hero() {
   const [i, setI] = useState(0);
-  const slide = slides[i] ?? slides[0]!;
 
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % slides.length), 6000);
@@ -83,89 +108,119 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-cream">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-20">
+    <section className="relative isolate overflow-hidden border-b-[3px] border-forest bg-lilac">
+      <div className="relative min-h-[560px] md:min-h-[720px]">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={slide.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span
-              className={cn(
-                "inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide",
-                accentBg[slide.accent],
-                accentText[slide.accent],
-              )}
-            >
-              {slide.kicker}
-            </span>
-            <h1 className="mt-5 font-display text-5xl leading-[0.95] font-extrabold md:text-7xl">
-              {slide.title}
-            </h1>
-            <p className="mt-5 max-w-md text-lg text-muted-foreground">{slide.text}</p>
-            <Link
-              to="/tienda"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-bold text-primary-foreground transition hover:scale-105"
-            >
-              Comprar <ArrowRight className="size-4" />
-            </Link>
-          </motion.div>
+          <motion.img
+            key={slides[i]}
+            src={slides[i] ?? slides[0]}
+            alt="Regalos plantables Resetea"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 0.85, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 size-full object-cover mix-blend-luminosity"
+          />
         </AnimatePresence>
+        <div className="absolute inset-0 bg-lilac/35" aria-hidden />
 
-        <div className="relative">
-          <div className="absolute -top-6 -left-6 size-32 rounded-full bg-amber/50 float-soft" aria-hidden />
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={slide.image}
-              src={slide.image}
-              alt={slide.title}
-              width={1200}
-              height={1200}
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-square w-full rounded-[2.5rem] object-cover shadow-xl"
-            />
-          </AnimatePresence>
+        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[720px]">
+          <motion.h1
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-4xl font-display text-5xl text-forest sm:text-7xl lg:text-8xl"
+          >
+            Pide un deseo
+            <br />y plántalo
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="mt-6 max-w-md text-base font-semibold text-forest sm:text-lg"
+          >
+            Regalos que se plantan, crecen y se recuerdan. Papel semilla y kits hechos a mano en
+            España.
+          </motion.p>
+          <Link
+            to="/tienda"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+          >
+            Comprar ahora <ArrowRight className="size-4" />
+          </Link>
+        </div>
 
-          <div className="mt-5 flex items-center justify-center gap-3">
-            <button
-              type="button"
-              aria-label="Anterior"
-              onClick={() => setI((v) => (v - 1 + slides.length) % slides.length)}
-              className="grid size-10 place-items-center rounded-full bg-card shadow transition hover:scale-110"
+        {heroStickers.map((s) => (
+          <div key={s.label} className={cn("absolute hidden lg:block", s.className)}>
+            <Link
+              to={s.to}
+              params={s.params as never}
+              className="block size-full float-soft focus-visible:outline-none"
             >
-              <ChevronLeft className="size-5" />
-            </button>
-            {slides.map((s, idx) => (
-              <button
-                key={s.title}
-                type="button"
-                aria-label={`Ir a ${s.title}`}
-                onClick={() => setI(idx)}
-                className={cn(
-                  "h-2.5 rounded-full transition-all",
-                  idx === i ? "w-8 bg-pink" : "w-2.5 bg-foreground/20",
-                )}
-              />
-            ))}
-            <button
-              type="button"
-              aria-label="Siguiente"
-              onClick={() => setI((v) => (v + 1) % slides.length)}
-              className="grid size-10 place-items-center rounded-full bg-card shadow transition hover:scale-110"
-            >
-              <ChevronRight className="size-5" />
-            </button>
+              <Sticker
+                shape={s.shape}
+                color={s.color}
+                rotate={s.rotate}
+                className="size-full border-[3px] border-forest whitespace-pre-line"
+              >
+                {s.label}
+              </Sticker>
+            </Link>
           </div>
+        ))}
+
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+          {slides.map((s, idx) => (
+            <button
+              key={s}
+              type="button"
+              aria-label={`Imagen ${idx + 1}`}
+              onClick={() => setI(idx)}
+              className={cn(
+                "h-2.5 rounded-full border-2 border-forest transition-all",
+                idx === i ? "w-8 bg-forest" : "w-2.5 bg-transparent",
+              )}
+            />
+          ))}
         </div>
       </div>
-      <Wave color="background" />
     </section>
+  );
+}
+
+function Marquee() {
+  const items = ["Envío gratis desde 30 €", "Papel semilla", "Hecho en España", "Planta y florece"];
+  return (
+    <div className="overflow-hidden border-b-[3px] border-forest bg-amber py-3 text-amber-foreground">
+      <div className="marquee-track whitespace-nowrap font-display text-lg uppercase sm:text-2xl">
+        {[0, 1].map((k) => (
+          <span key={k} className="flex shrink-0">
+            {items.map((t) => (
+              <span key={t} className="px-6">
+                {t} <span className="text-forest">✱</span>
+              </span>
+            ))}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SectionTitle({ children, to }: { children: string; to?: "/tienda" }) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-4">
+      <h2 className="font-display text-4xl uppercase sm:text-6xl">{children}</h2>
+      {to ? (
+        <Link
+          to={to}
+          className="rounded-full border-[3px] border-forest px-5 py-2 font-display text-xs uppercase transition hover:bg-forest hover:text-forest-foreground"
+        >
+          Ver todo
+        </Link>
+      ) : null}
+    </div>
   );
 }
 
@@ -176,24 +231,33 @@ function GiftFinder() {
 
   const chip = (active: boolean) =>
     cn(
-      "rounded-full border px-4 py-2 text-sm font-semibold transition",
-      active
-        ? "border-pink bg-pink text-pink-foreground scale-105"
-        : "border-border bg-card hover:border-pink hover:text-pink",
+      "rounded-full border-[3px] border-forest px-4 py-2 font-display text-xs uppercase transition",
+      active ? "bg-forest text-forest-foreground scale-105" : "bg-cream hover:bg-amber",
     );
 
+  const groups = [
+    { title: "Ocasión", items: occasionFilters, value: occasion, set: setOccasion },
+    { title: "Tipo de producto", items: typeFilters, value: type, set: setType },
+    {
+      title: "Presupuesto",
+      items: budgetFilters.map((b) => b.label),
+      value: budget,
+      set: setBudget,
+    },
+  ];
+
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
-      <Reveal className="rounded-[2.5rem] bg-peri/15 p-6 md:p-12">
-        <h2 className="font-display text-3xl font-extrabold md:text-4xl">
+    <section className="border-y-[3px] border-forest bg-lilac text-forest">
+      <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
           Encuentra el regalo perfecto
         </h2>
-        <p className="mt-2 text-muted-foreground">
+        <p className="mt-3 max-w-md font-semibold">
           Dinos para quién es y te enseñamos lo que más florece.
         </p>
 
-        <label className="mt-6 flex items-center gap-3 rounded-full bg-card px-5 py-3.5 shadow-sm">
-          <Search className="size-4 text-muted-foreground" />
+        <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full border-[3px] border-forest bg-cream px-5 py-3.5">
+          <Search className="size-4" />
           <input
             type="search"
             placeholder="¿Qué estás buscando?"
@@ -201,67 +265,33 @@ function GiftFinder() {
           />
         </label>
 
-        <div className="mt-8 space-y-6">
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
-              Ocasión
-            </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {occasionFilters.map((o) => (
-                <button
-                  key={o}
-                  type="button"
-                  onClick={() => setOccasion((v) => (v === o ? null : o))}
-                  className={chip(occasion === o)}
-                >
-                  {o}
-                </button>
-              ))}
+        <div className="mt-10 space-y-7">
+          {groups.map((g) => (
+            <div key={g.title}>
+              <h3 className="font-display text-sm uppercase">{g.title}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {g.items.map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => g.set(g.value === item ? null : item)}
+                    className={chip(g.value === item)}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
-              Tipo de producto
-            </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {typeFilters.map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => setType((v) => (v === t ? null : t))}
-                  className={chip(type === t)}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
-              Presupuesto
-            </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {budgetFilters.map((b) => (
-                <button
-                  key={b.label}
-                  type="button"
-                  onClick={() => setBudget((v) => (v === b.label ? null : b.label))}
-                  className={chip(budget === b.label)}
-                >
-                  {b.label}
-                </button>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
 
         <Link
           to="/tienda"
-          className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-bold text-primary-foreground transition hover:scale-105"
+          className="mt-10 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
         >
           Ver resultados <ArrowRight className="size-4" />
         </Link>
-      </Reveal>
+      </div>
     </section>
   );
 }
@@ -273,155 +303,144 @@ function Home() {
   return (
     <main>
       <Hero />
+      <Marquee />
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="border-b-[3px] border-forest bg-cream">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal key={v.label} delay={i * 0.08} className="text-center">
-              <div
-                className={cn(
-                  "mx-auto grid size-24 place-items-center rounded-full transition-transform duration-300 hover:scale-110",
-                  accentBg[v.accent],
-                  accentText[v.accent],
-                )}
+              <Sticker
+                shape={v.shape}
+                color={v.color}
+                rotate={i % 2 ? 5 : -5}
+                className="mx-auto size-28 border-[3px] border-forest"
               >
-                <v.icon className="size-10" />
-              </div>
-              <h3 className="mt-4 font-display text-xl font-bold">{v.label}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{v.text}</p>
+                <v.icon className="size-10 text-forest" />
+              </Sticker>
+              <h3 className="mt-5 font-display text-xl uppercase">{v.label}</h3>
+              <p className="mt-1 text-sm font-semibold text-muted-foreground">{v.text}</p>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl font-extrabold md:text-4xl">Novedades</h2>
-          <Link to="/tienda" className="text-sm font-bold text-pink hover:underline">
-            Ver todo
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {novedades.map((p, i) => (
-            <ProductCard key={p.slug} product={p} index={i} />
-          ))}
+      <section className="border-b-[3px] border-forest bg-background">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <SectionTitle to="/tienda">Novedades</SectionTitle>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {novedades.map((p, i) => (
+              <ProductCard key={p.slug} product={p} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
-      <Wave color="cream" />
-      <section className="bg-cream">
-        <div className="mx-auto max-w-7xl px-4 py-10">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-display text-3xl font-extrabold md:text-4xl">Súper ventas</h2>
-            <Link to="/tienda" className="text-sm font-bold text-pink hover:underline">
-              Ver todo
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="border-b-[3px] border-forest bg-pink text-pink-foreground">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <SectionTitle to="/tienda">Súper ventas</SectionTitle>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {ventas.map((p, i) => (
               <ProductCard key={p.slug} product={p} index={i} />
             ))}
           </div>
         </div>
-        <Wave color="background" />
       </section>
 
       <GiftFinder />
 
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <h2 className="font-display text-3xl font-extrabold md:text-4xl">Compra por categoría</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 0.05}>
-              <Link
-                to="/categoria/$slug"
-                params={{ slug: c.slug }}
-                className="group block overflow-hidden rounded-[2rem] bg-card shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={c.image}
-                    alt={c.name}
-                    loading="lazy"
-                    width={900}
-                    height={675}
-                    className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+      <section className="border-b-[3px] border-forest bg-cream">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <SectionTitle>Compra por categoría</SectionTitle>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 0.05}>
+                <Link
+                  to="/categoria/$slug"
+                  params={{ slug: c.slug }}
+                  className="group relative block overflow-hidden rounded-3xl border-[3px] border-forest"
+                >
+                  <div className="tint-lilac relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={c.image}
+                      alt={c.name}
+                      loading="lazy"
+                      width={900}
+                      height={675}
+                      className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
                   <span
                     className={cn(
-                      "absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-bold",
-                      accentBg[c.accent],
-                      accentText[c.accent],
+                      "sticker-oval absolute bottom-4 left-4 border-[3px] border-forest px-5 py-3 font-display text-sm uppercase transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
+                      i % 3 === 0
+                        ? "bg-amber text-amber-foreground"
+                        : i % 3 === 1
+                          ? "bg-pink text-pink-foreground"
+                          : "bg-cream text-forest",
                     )}
                   >
                     {c.name}
                   </span>
-                </div>
-                <div className="flex items-center justify-between gap-3 p-5">
-                  <div>
-                    <h3 className="font-display text-xl font-bold">{c.name}</h3>
-                    <p className="text-sm text-muted-foreground">{c.tagline}</p>
-                  </div>
-                  <span className="inline-flex shrink-0 items-center gap-1 text-sm font-bold text-pink">
-                    Ver productos <ArrowRight className="size-4" />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2">
-        <Reveal>
-          <img
-            src={story}
-            alt="El taller de Resetea"
-            loading="lazy"
-            width={1000}
-            height={1000}
-            className="scallop aspect-square w-full object-cover"
-          />
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-3xl font-extrabold md:text-4xl">
-            Conoce nuestra historia
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Empezamos en un taller pequeño con una idea grande: que un regalo pueda seguir vivo
-            después de abrirlo. Hoy fabricamos papel semilla y kits de siembra en España, con
-            materiales que vuelven a la tierra y personas que los cuidan.
-          </p>
-          <Link
-            to="/nuestra-historia"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3.5 font-bold text-lime-foreground transition hover:scale-105"
-          >
-            Leer más <ArrowRight className="size-4" />
-          </Link>
-        </Reveal>
+      <section className="border-b-[3px] border-forest bg-forest text-forest-foreground">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2">
+          <Reveal>
+            <img
+              src={story}
+              alt="El taller de Resetea"
+              loading="lazy"
+              width={1000}
+              height={1000}
+              className="blob-mask aspect-square w-full border-[3px] border-cream object-cover"
+            />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="font-display text-4xl uppercase sm:text-6xl">Nuestra historia</h2>
+            <p className="mt-5 font-semibold opacity-90">
+              Empezamos en un taller pequeño con una idea grande: que un regalo pueda seguir vivo
+              después de abrirlo. Hoy fabricamos papel semilla y kits de siembra en España, con
+              materiales que vuelven a la tierra y personas que los cuidan.
+            </p>
+            <Link
+              to="/nuestra-historia"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-cream bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
+            >
+              Leer más <ArrowRight className="size-4" />
+            </Link>
+          </Reveal>
+        </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-20 md:grid-cols-2">
-        <Reveal className="rounded-[2rem] bg-amber p-10 text-amber-foreground">
-          <h3 className="font-display text-2xl font-extrabold">¿Tienes una tienda?</h3>
-          <p className="mt-2 opacity-80">Vende Resetea en tu espacio con condiciones mayoristas.</p>
+      <section className="grid md:grid-cols-2">
+        <Reveal className="border-b-[3px] border-forest bg-amber px-6 py-16 text-amber-foreground md:border-r-[3px] md:px-12">
+          <h3 className="font-display text-3xl uppercase sm:text-5xl">¿Tienes una tienda?</h3>
+          <p className="mt-3 max-w-sm font-semibold">
+            Vende Resetea en tu espacio con condiciones mayoristas.
+          </p>
           <Link
             to="/contacto"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
           >
             Hablemos <ArrowRight className="size-4" />
           </Link>
         </Reveal>
-        <Reveal delay={0.08} className="rounded-[2rem] bg-peri p-10 text-peri-foreground">
-          <h3 className="font-display text-2xl font-extrabold">
-            ¿Buscas productos personalizados?
-          </h3>
-          <p className="mt-2 opacity-80">
+        <Reveal
+          delay={0.08}
+          className="border-b-[3px] border-forest bg-pink px-6 py-16 text-pink-foreground md:px-12"
+        >
+          <h3 className="font-display text-3xl uppercase sm:text-5xl">Personalizados</h3>
+          <p className="mt-3 max-w-sm font-semibold">
             Personalizamos semillas, mensajes y packaging para tu marca o evento.
           </p>
           <Link
             to="/contacto"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border-[3px] border-forest bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
           >
             Pide presupuesto <ArrowRight className="size-4" />
           </Link>

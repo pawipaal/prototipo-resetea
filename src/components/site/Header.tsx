@@ -32,7 +32,7 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full">
       {/* Fila 1: logo, buscador, cuenta y cesta */}
       <div className="bg-lilac text-forest">
-        <div className="mx-auto grid min-h-28 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-2 lg:grid-cols-[1fr_auto_1fr]">
           <div className="flex items-center gap-3 lg:justify-self-start">
             <button
               type="button"
@@ -43,10 +43,10 @@ export function Header() {
               {menu ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
 
-            <Logo className="h-20 shrink-0 sm:h-24" />
+            <Logo className="h-16 shrink-0 sm:h-[4.75rem]" />
           </div>
 
-          <label className="mx-2 hidden w-full max-w-xl items-center gap-2 justify-self-center rounded-full border-2 border-forest bg-white px-5 py-3 sm:flex md:mx-6">
+          <label className="mx-2 hidden w-full max-w-xl items-center gap-2 justify-self-center rounded-full border-2 border-forest bg-white px-5 py-2.5 sm:flex md:mx-6">
             <input
               type="search"
               placeholder="Busca un regalo: kit de cultivo, lápiz…"
@@ -150,7 +150,7 @@ export function Header() {
       {/* Fila 2: navegación de tienda, tipo Amazon */}
       <nav className="hidden border-b-[3px] border-forest bg-background lg:block">
         <div className="mx-auto max-w-7xl px-4">
-          <ul className="flex items-center justify-center gap-7 py-3">
+          <ul className="flex items-center justify-center gap-7 py-2">
             {shopNav.map((item) => (
               <li key={item.label}>
                 {item.slug ? (

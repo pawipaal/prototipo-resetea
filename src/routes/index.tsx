@@ -252,7 +252,7 @@ function Home() {
     <main>
       <Hero />
 
-      <section className="bg-cream">
+      <section className="bg-[#84b55b]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal key={v.label} delay={i * 0.08} className="text-center">
@@ -273,7 +273,7 @@ function Home() {
 
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <SectionTitle to="/tienda">Novedades</SectionTitle>
+          <SectionTitle>Novedades</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {novedades.map((p, i) => (
               <ProductCard key={p.slug} product={p} index={i} />
@@ -393,4 +393,3 @@ function Home() {
     </main>
   );
 }
-

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ShoppingBag, Star } from "lucide-react";
+import { ShoppingCart, Star } from "lucide-react";
 import { toast } from "sonner";
 import { formatPrice, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
@@ -55,7 +55,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         aria-label={`Añadir ${product.name} a la cesta`}
         className="absolute top-[calc(100%-10.5rem)] right-3 z-10 grid size-11 translate-y-2 place-items-center rounded-full bg-amber text-amber-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:scale-110 focus-visible:translate-y-0 focus-visible:opacity-100"
       >
-        <ShoppingBag className="size-5" />
+        <ShoppingCart className="size-5" strokeWidth={2.75} />
       </button>
 
       <div className="flex flex-1 flex-col p-4">

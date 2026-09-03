@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingCart, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
@@ -78,7 +78,7 @@ export function Header() {
               aria-label={`Cesta, ${count} artículos`}
               className="relative grid size-10 place-items-center rounded-full hover:bg-forest hover:text-cream"
             >
-              <ShoppingBag className="size-6" />
+              <ShoppingCart className="size-6" strokeWidth={2.75} />
               <span className="absolute -top-0.5 -right-0.5 grid size-5 place-items-center rounded-full bg-forest font-display text-[11px] text-cream">
                 {count}
               </span>

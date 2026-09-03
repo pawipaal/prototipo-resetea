@@ -125,7 +125,7 @@ function Hero() {
             </motion.p>
             <Link
               to="/tienda"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground transition hover:scale-105"
             >
               Comprar ahora
             </Link>
@@ -159,11 +159,11 @@ function Hero() {
 function SectionTitle({ children, to }: { children: string; to?: "/tienda" }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
-      <h2 className="font-display text-4xl uppercase sm:text-6xl">{children}</h2>
+      <h2 className="font-display text-4xl sm:text-6xl">{children}</h2>
       {to ? (
         <Link
           to={to}
-          className="rounded-full px-5 py-2 font-display text-xs uppercase transition hover:bg-forest hover:text-forest-foreground"
+          className="rounded-full px-5 py-2 font-display text-xs transition hover:bg-forest hover:text-forest-foreground"
         >
           Ver todo
         </Link>
@@ -179,7 +179,7 @@ function GiftFinder() {
 
   const chip = (active: boolean) =>
     cn(
-      "rounded-full px-4 py-2 font-display text-xs uppercase transition",
+      "rounded-full px-4 py-2 font-display text-xs transition",
       active ? "bg-forest text-forest-foreground scale-105" : "bg-cream hover:bg-amber",
     );
 
@@ -198,7 +198,7 @@ function GiftFinder() {
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac text-forest">
         <div className="px-6 py-16 md:px-12 md:py-24">
-          <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
+          <h2 className="max-w-3xl font-display text-4xl sm:text-6xl">
             Encuentra el regalo perfecto
           </h2>
           <p className="mt-3 max-w-md font-semibold">
@@ -217,7 +217,7 @@ function GiftFinder() {
           <div className="mt-10 space-y-7">
             {groups.map((g) => (
               <div key={g.title}>
-                <h3 className="font-display text-sm uppercase">{g.title}</h3>
+                <h3 className="font-display text-sm">{g.title}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {g.items.map((item) => (
                     <button
@@ -236,7 +236,7 @@ function GiftFinder() {
 
           <Link
             to="/tienda"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 font-display text-sm text-forest-foreground transition hover:scale-105"
           >
             Ver resultados <ArrowRight className="size-4" />
           </Link>
@@ -275,7 +275,7 @@ function Home() {
               >
                 <v.icon className="size-10 text-forest" />
               </Sticker>
-              <h3 className="mt-5 font-display text-xl uppercase">{v.label}</h3>
+              <h3 className="mt-5 font-display text-xl">{v.label}</h3>
               <p className="mt-1 text-sm font-semibold text-muted-foreground">{v.text}</p>
             </Reveal>
           ))}
@@ -293,7 +293,25 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-pink text-pink-foreground">
+      <section className="relative overflow-hidden bg-pink text-pink-foreground">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-5 bg-repeat-x sm:h-7"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 Q10 0 20 20 Q30 0 40 20 Z' fill='%23FDF9F0'/%3E%3C/svg%3E\")",
+            backgroundSize: "40px 20px",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-5 bg-repeat-x sm:h-7"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 0 Q10 20 20 0 Q30 20 40 0 Z' fill='%23FDF9F0'/%3E%3C/svg%3E\")",
+            backgroundSize: "40px 20px",
+          }}
+        />
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle to="/tienda">Súper ventas</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -329,7 +347,7 @@ function Home() {
                   </div>
                   <span
                     className={cn(
-                      "sticker-oval absolute bottom-4 left-4 px-5 py-3 font-display text-sm uppercase transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
+                      "sticker-oval absolute bottom-4 left-4 px-5 py-3 font-display text-sm transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
                       i % 3 === 0
                         ? "bg-amber text-amber-foreground"
                         : i % 3 === 1
@@ -359,7 +377,7 @@ function Home() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl uppercase sm:text-6xl">Nuestra historia</h2>
+            <h2 className="font-display text-4xl sm:text-6xl">Nuestra historia</h2>
             <p className="mt-5 font-semibold opacity-90">
               Empezamos en un taller pequeño con una idea grande: que un regalo pueda seguir vivo
               después de abrirlo. Hoy fabricamos papel semilla y kits de siembra en España, con
@@ -367,7 +385,7 @@ function Home() {
             </p>
             <Link
               to="/nuestra-historia"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground uppercase transition hover:scale-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground transition hover:scale-105"
             >
               Leer más <ArrowRight className="size-4" />
             </Link>
@@ -377,25 +395,25 @@ function Home() {
 
       <section className="grid md:grid-cols-2">
         <Reveal className="bg-amber px-6 py-16 text-amber-foreground md:px-12">
-          <h3 className="font-display text-3xl uppercase sm:text-5xl">¿Tienes una tienda?</h3>
+          <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
           <p className="mt-3 max-w-sm font-semibold">
             Vende Resetea en tu espacio con condiciones mayoristas.
           </p>
           <Link
             to="/contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
           >
             Hablemos <ArrowRight className="size-4" />
           </Link>
         </Reveal>
         <Reveal delay={0.08} className="bg-pink px-6 py-16 text-pink-foreground md:px-12">
-          <h3 className="font-display text-3xl uppercase sm:text-5xl">Personalizados</h3>
+          <h3 className="font-display text-3xl sm:text-5xl">Personalizados</h3>
           <p className="mt-3 max-w-sm font-semibold">
             Personalizamos semillas, mensajes y packaging para tu marca o evento.
           </p>
           <Link
             to="/contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
           >
             Pide presupuesto <ArrowRight className="size-4" />
           </Link>

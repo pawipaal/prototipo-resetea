@@ -36,7 +36,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         {product.badge ? (
           <span
             className={cn(
-              "sticker-oval absolute top-3 left-3 rotate-[-6deg] px-4 py-2 font-display text-[11px] uppercase",
+              "sticker-oval absolute top-3 left-3 rotate-[-6deg] px-4 py-2 font-display text-[11px] ",
               accentBg[product.accent],
               accentText[product.accent],
             )}
@@ -63,7 +63,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           <Star className="size-3.5 fill-amber text-amber" />
           {product.rating} · {product.reviews}
         </div>
-        <h3 className="mt-1 font-display text-base leading-tight uppercase">
+        <h3 className="mt-1 font-display text-base leading-tight">
           <Link to="/producto/$slug" params={{ slug: product.slug }}>
             <span className="absolute inset-0" aria-hidden />
             {product.name}

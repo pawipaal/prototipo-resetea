@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-forest text-forest-foreground">
       <div className="overflow-hidden bg-amber py-3 text-amber-foreground">
-        <div className="marquee-track whitespace-nowrap font-display text-2xl uppercase md:text-4xl">
+        <div className="marquee-track whitespace-nowrap font-display text-2xl md:text-4xl">
           {[0, 1].map((k) => (
             <span key={k} className="flex shrink-0">
               {["Pide un deseo", "Plántalo", "Regala vida", "Resetea"].map((t) => (
@@ -107,7 +107,7 @@ export function Footer() {
             />
             <button
               type="submit"
-              className="rounded-full bg-amber px-4 py-2 font-display text-xs text-amber-foreground uppercase"
+              className="rounded-full bg-amber px-4 py-2 font-display text-xs text-amber-foreground"
             >
               Unirme
             </button>

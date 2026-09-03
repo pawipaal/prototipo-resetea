@@ -41,7 +41,7 @@ export function Sticker({
       whileHover={{ scale: 1.08, rotate: rotate + 4 }}
       transition={{ type: "spring", stiffness: 220, damping: 16 }}
       className={cn(
-        "inline-grid place-items-center px-6 py-4 text-center font-display text-sm leading-[0.95] uppercase sm:text-base",
+        "inline-grid place-items-center px-6 py-4 text-center font-display text-sm leading-[0.95] sm:text-base",
         shapeClass[shape],
         colorClass[color],
         className,

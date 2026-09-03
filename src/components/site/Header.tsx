@@ -16,8 +16,7 @@ const shopNav = [
   { label: "Papelería plantable", slug: "papeleria-plantable" },
 ];
 
-const navLink =
-  "font-display text-[13px] uppercase tracking-tight underline-offset-8 hover:underline";
+const navLink = "font-display text-[13px] tracking-tight underline-offset-8 hover:underline";
 
 export function Header() {
   const { count, setOpen } = useCart();
@@ -52,7 +51,7 @@ export function Header() {
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-amber px-5 py-2 font-display text-[13px] uppercase tracking-tight text-amber-foreground hover:opacity-90"
+              className="shrink-0 rounded-full bg-amber px-5 py-2 font-display text-[13px] tracking-tight text-amber-foreground hover:opacity-90"
             >
               Buscar
             </button>
@@ -62,14 +61,14 @@ export function Header() {
             <a
               href="#"
               onClick={(e) => e.preventDefault()}
-              className="hidden font-display text-[13px] uppercase tracking-tight hover:underline sm:inline"
+              className="hidden font-display text-[13px] tracking-tight hover:underline sm:inline"
             >
               Inicia sesión
             </a>
             <a
               href="#"
               onClick={(e) => e.preventDefault()}
-              className="hidden items-center rounded-full bg-forest px-5 py-2.5 font-display text-[13px] uppercase tracking-tight text-cream hover:opacity-90 sm:inline-flex"
+              className="hidden items-center rounded-full bg-forest px-5 py-2.5 font-display text-[13px] tracking-tight text-cream hover:opacity-90 sm:inline-flex"
             >
               Regístrate
             </a>
@@ -99,7 +98,7 @@ export function Header() {
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-amber px-4 py-2 font-display text-xs uppercase tracking-tight text-amber-foreground hover:opacity-90"
+              className="shrink-0 rounded-full bg-amber px-4 py-2 font-display text-xs tracking-tight text-amber-foreground hover:opacity-90"
             >
               Buscar
             </button>
@@ -185,7 +184,7 @@ export function Header() {
       </nav>
 
       <div className="overflow-hidden bg-forest py-2 text-forest-foreground">
-        <div className="marquee-track-fast whitespace-nowrap font-display text-sm uppercase">
+        <div className="marquee-track-fast whitespace-nowrap font-display text-sm">
           {[0, 1].map((k) => (
             <span key={k} className="flex shrink-0">
               {Array.from({ length: 6 }, (_, i) => (

@@ -197,7 +197,7 @@ function GiftFinder() {
   return (
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac text-forest">
-        <div className="px-4 py-16 md:py-24">
+        <div className="px-6 py-16 md:px-12 md:py-24">
           <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
             Encuentra el regalo perfecto
           </h2>

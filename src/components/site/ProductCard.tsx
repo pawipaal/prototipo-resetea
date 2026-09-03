@@ -4,8 +4,6 @@ import { ShoppingCart, Star } from "lucide-react";
 import { toast } from "sonner";
 import { formatPrice, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
-import { accentBg, accentText } from "./accents";
-import { cn } from "@/lib/utils";
 
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const { add } = useCart();
@@ -35,17 +33,6 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             />
           </div>
         </Link>
-        {product.badge ? (
-          <span
-            className={cn(
-              "sticker-oval absolute top-3 left-3 rotate-[-6deg] px-4 py-2 font-display text-[11px] ",
-              accentBg[product.accent],
-              accentText[product.accent],
-            )}
-          >
-            {product.badge}
-          </span>
-        ) : null}
 
         <button
           type="button"

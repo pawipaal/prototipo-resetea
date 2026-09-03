@@ -244,8 +244,17 @@ function GiftFinder() {
   );
 }
 
+const HOME_NOVEDADES_SLUGS = [
+  "kit-cultivo-no-me-olvides",
+  "haz-macetas-arcilla",
+  "postales-plantables-navidenas",
+  "calendario-plantable-2027",
+];
+
 function Home() {
-  const novedades = products.filter((p) => p.isNew).slice(0, 4);
+  const novedades = HOME_NOVEDADES_SLUGS.map((slug) =>
+    products.find((p) => p.slug === slug),
+  ).filter((p): p is (typeof products)[number] => Boolean(p));
   const ventas = products.filter((p) => p.isBestseller).slice(0, 4);
 
   return (

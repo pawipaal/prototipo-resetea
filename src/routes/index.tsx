@@ -195,50 +195,52 @@ function GiftFinder() {
   ];
 
   return (
-    <section className="bg-lilac text-forest">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
-        <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
-          Encuentra el regalo perfecto
-        </h2>
-        <p className="mt-3 max-w-md font-semibold">
-          Dinos para quién es y te enseñamos lo que más florece.
-        </p>
+    <section className="bg-background px-4 py-6 md:px-8 md:py-10">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac text-forest">
+        <div className="px-4 py-16 md:py-24">
+          <h2 className="max-w-3xl font-display text-4xl uppercase sm:text-6xl">
+            Encuentra el regalo perfecto
+          </h2>
+          <p className="mt-3 max-w-md font-semibold">
+            Dinos para quién es y te enseñamos lo que más florece.
+          </p>
 
-        <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full bg-cream px-5 py-3.5">
-          <Search className="size-4" />
-          <input
-            type="search"
-            placeholder="¿Qué estás buscando?"
-            className="w-full bg-transparent text-sm outline-none"
-          />
-        </label>
+          <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full bg-cream px-5 py-3.5">
+            <Search className="size-4" />
+            <input
+              type="search"
+              placeholder="¿Qué estás buscando?"
+              className="w-full bg-transparent text-sm outline-none"
+            />
+          </label>
 
-        <div className="mt-10 space-y-7">
-          {groups.map((g) => (
-            <div key={g.title}>
-              <h3 className="font-display text-sm uppercase">{g.title}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <button
-                    key={item}
-                    type="button"
-                    onClick={() => g.set(g.value === item ? null : item)}
-                    className={chip(g.value === item)}
-                  >
-                    {item}
-                  </button>
-                ))}
+          <div className="mt-10 space-y-7">
+            {groups.map((g) => (
+              <div key={g.title}>
+                <h3 className="font-display text-sm uppercase">{g.title}</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {g.items.map((item) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => g.set(g.value === item ? null : item)}
+                      className={chip(g.value === item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <Link
-          to="/tienda"
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
-        >
-          Ver resultados <ArrowRight className="size-4" />
-        </Link>
+          <Link
+            to="/tienda"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 font-display text-sm text-forest-foreground uppercase transition hover:scale-105"
+          >
+            Ver resultados <ArrowRight className="size-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );

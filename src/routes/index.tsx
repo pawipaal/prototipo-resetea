@@ -304,52 +304,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-background">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <SectionTitle>Novedades</SectionTitle>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {novedades.map((p, i) => (
-              <ProductCard key={p.slug} product={p} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-pink text-pink-foreground">
-        <svg
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-8 w-full text-background sm:h-14"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,50 C90,10 180,10 270,50 C360,90 450,90 540,50 C630,10 720,10 810,50 C900,90 990,90 1080,50 C1170,10 1260,10 1350,50 C1395,70 1420,60 1440,50 L1440,0 L0,0 Z"
-          />
-        </svg>
-        <svg
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-8 w-full text-background sm:h-14"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,50 C90,90 180,90 270,50 C360,10 450,10 540,50 C630,90 720,90 810,50 C900,10 990,10 1080,50 C1170,90 1260,90 1350,50 C1395,30 1420,40 1440,50 L1440,100 L0,100 Z"
-          />
-        </svg>
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:py-28">
-          <SectionTitle to="/tienda">Súper ventas</SectionTitle>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {ventas.map((p, i) => (
-              <ProductCard key={p.slug} product={p} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <GiftFinder />
-
       <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle>Compra por categoría</SectionTitle>
@@ -389,6 +343,52 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="relative overflow-hidden bg-pink text-pink-foreground">
+        <svg
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-8 w-full text-background sm:h-14"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,50 C90,10 180,10 270,50 C360,90 450,90 540,50 C630,10 720,10 810,50 C900,90 990,90 1080,50 C1170,10 1260,10 1350,50 C1395,70 1420,60 1440,50 L1440,0 L0,0 Z"
+          />
+        </svg>
+        <svg
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-8 w-full text-background sm:h-14"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,50 C90,90 180,90 270,50 C360,10 450,10 540,50 C630,90 720,90 810,50 C900,10 990,10 1080,50 C1170,90 1260,90 1350,50 C1395,30 1420,40 1440,50 L1440,100 L0,100 Z"
+          />
+        </svg>
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:py-28">
+          <SectionTitle>Novedades</SectionTitle>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {novedades.map((p, i) => (
+              <ProductCard key={p.slug} product={p} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <SectionTitle to="/tienda">Súper ventas</SectionTitle>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {ventas.map((p, i) => (
+              <ProductCard key={p.slug} product={p} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GiftFinder />
 
       <section className="bg-forest text-forest-foreground">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2">

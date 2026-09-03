@@ -294,24 +294,28 @@ function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-pink text-pink-foreground">
-        <div
+        <svg
           aria-hidden
-          className="absolute inset-x-0 top-0 h-5 bg-repeat-x sm:h-7"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 Q10 0 20 20 Q30 0 40 20 Z' fill='%23FDF9F0'/%3E%3C/svg%3E\")",
-            backgroundSize: "40px 20px",
-          }}
-        />
-        <div
+          className="absolute inset-x-0 top-0 h-8 w-full text-background sm:h-14"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,50 C90,10 180,10 270,50 C360,90 450,90 540,50 C630,10 720,10 810,50 C900,90 990,90 1080,50 C1170,10 1260,10 1350,50 C1395,70 1420,60 1440,50 L1440,0 L0,0 Z"
+          />
+        </svg>
+        <svg
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-5 bg-repeat-x sm:h-7"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 0 Q10 20 20 0 Q30 20 40 0 Z' fill='%23FDF9F0'/%3E%3C/svg%3E\")",
-            backgroundSize: "40px 20px",
-          }}
-        />
+          className="absolute inset-x-0 bottom-0 h-8 w-full text-background sm:h-14"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,50 C90,90 180,90 270,50 C360,10 450,10 540,50 C630,90 720,90 810,50 C900,10 990,10 1080,50 C1170,90 1260,90 1350,50 C1395,30 1420,40 1440,50 L1440,100 L0,100 Z"
+          />
+        </svg>
         <div className="mx-auto max-w-7xl px-4 py-16">
           <SectionTitle to="/tienda">Súper ventas</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

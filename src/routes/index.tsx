@@ -316,7 +316,7 @@ function Home() {
             d="M0,50 C90,90 180,90 270,50 C360,10 450,10 540,50 C630,90 720,90 810,50 C900,10 990,10 1080,50 C1170,90 1260,90 1350,50 C1395,30 1420,40 1440,50 L1440,100 L0,100 Z"
           />
         </svg>
-        <div className="mx-auto max-w-7xl px-4 py-16">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:py-28">
           <SectionTitle to="/tienda">Súper ventas</SectionTitle>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {ventas.map((p, i) => (

@@ -5,10 +5,11 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  Globe,
+  Hand,
+  Lightbulb,
   Leaf,
-  Recycle,
   Search,
-  Sparkles,
   Sprout,
 } from "lucide-react";
 import heroResetea from "@/assets/hero-resetea-es.jpg";
@@ -42,30 +43,53 @@ export const Route = createFileRoute("/")({
 
 const slides = [heroResetea];
 
+const VALUE_ICON_STROKE = 2.25;
+
+function ValueIconResponsables({ className }: { className?: string }) {
+  return (
+    <span className={cn("relative inline-grid place-items-center", className)}>
+      <Globe className="size-8" strokeWidth={VALUE_ICON_STROKE} />
+      <Leaf className="absolute -top-1 -right-1 size-4" strokeWidth={VALUE_ICON_STROKE} />
+    </span>
+  );
+}
+
+function ValueIconOriginales({ className }: { className?: string }) {
+  return (
+    <span className={cn("relative inline-grid place-items-center", className)}>
+      <Globe className="absolute -top-1 size-6" strokeWidth={VALUE_ICON_STROKE} />
+      <span className="absolute -bottom-1 flex items-end">
+        <Hand className="size-5 -rotate-12" strokeWidth={VALUE_ICON_STROKE} />
+        <Hand className="-scale-x-100 size-5 -rotate-12" strokeWidth={VALUE_ICON_STROKE} />
+      </span>
+    </span>
+  );
+}
+
 const values = [
   {
-    icon: Recycle,
+    icon: Sprout,
     label: "Sostenibles",
     text: "Materiales que vuelven a la tierra",
     color: "yellow" as const,
     shape: "blob" as const,
   },
   {
-    icon: Leaf,
+    icon: Lightbulb,
     label: "Naturales",
     text: "Semillas ecológicas certificadas",
     color: "pink" as const,
     shape: "flower" as const,
   },
   {
-    icon: Sparkles,
+    icon: ValueIconOriginales,
     label: "Originales",
     text: "Diseño propio, hecho a mano",
     color: "lilac" as const,
     shape: "oval" as const,
   },
   {
-    icon: Sprout,
+    icon: ValueIconResponsables,
     label: "Responsables",
     text: "Producción local en España",
     color: "cream" as const,
@@ -295,7 +319,7 @@ function Home() {
                 rotate={i % 2 ? 5 : -5}
                 className="mx-auto size-28"
               >
-                <v.icon className="size-10 text-forest" />
+                <v.icon className="size-10 text-forest" strokeWidth={VALUE_ICON_STROKE} />
               </Sticker>
               <h3 className="mt-5 font-display text-xl">{v.label}</h3>
               <p className="mt-1 text-sm font-semibold text-muted-foreground">{v.text}</p>

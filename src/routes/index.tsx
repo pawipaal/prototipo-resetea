@@ -261,7 +261,7 @@ function Hero() {
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl font-display text-5xl text-white sm:text-7xl lg:text-8xl"
+              className="pointer-events-none max-w-4xl font-display text-5xl text-white sm:text-7xl lg:text-8xl"
             >
               {slide.title}
             </motion.h1>
@@ -270,13 +270,13 @@ function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.6 }}
-              className="mt-6 max-w-md text-base font-semibold text-white sm:text-lg"
+              className="pointer-events-none mt-6 max-w-md text-base font-semibold text-white sm:text-lg"
             >
               {slide.text}
             </motion.p>
             <Link
               to="/tienda"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground transition hover:scale-105"
+              className="pointer-events-auto mt-8 inline-flex items-center gap-2 rounded-full bg-amber px-8 py-4 font-display text-sm text-amber-foreground transition hover:scale-105"
             >
               Comprar ahora
             </Link>

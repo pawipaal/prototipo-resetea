@@ -255,7 +255,7 @@ function Hero() {
             <ChevronRight className="size-5" />
           </button>
 
-          <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left sm:pl-[48%] md:min-h-[640px] md:px-12 md:pl-[48%]">
+          <div className="pointer-events-none relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left sm:pl-[48%] md:min-h-[640px] md:px-12 md:pl-[48%]">
             <motion.h1
               key={`title-${i}`}
               initial={{ opacity: 0, y: 26 }}

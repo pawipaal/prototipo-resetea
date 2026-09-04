@@ -3,6 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import heroResetea from "@/assets/hero-resetea-es.jpg";
+import heroNoMeOlvides from "@/assets/hero-no-me-olvides.jpg";
+import heroTerrarium from "@/assets/hero-terrarium.jpg";
+import heroMacetas from "@/assets/hero-macetas.jpg";
 import story from "@/assets/story.jpg";
 import { budgetFilters, categories, occasionFilters, products, typeFilters } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
@@ -30,7 +33,28 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const slides = [heroResetea];
+const slides = [
+  {
+    image: heroResetea,
+    title: "Pide un deseo",
+    text: "Cultiva tu diente de león en casa con este kit completo y espera a que llegue el momento de soplar y pedir un deseo.",
+  },
+  {
+    image: heroNoMeOlvides,
+    title: "No me olvides",
+    text: "Pequeña, delicada y llena de significado. Esta flor, conocida por sus diminutas flores azules y su resistencia, simboliza el amor eterno y la sinceridad, lo que la convierte en el regalo perfecto para demostrar afecto a una persona especial.",
+  },
+  {
+    image: heroTerrarium,
+    title: "Kit Terrarium Pino",
+    text: "Con este terrario, crearás un ecosistema en miniatura que te permitirá llevar la esencia de un bosque a tu hogar. Déjate sorprender por la belleza de un fragmento de bosque en miniatura en tu casa.",
+  },
+  {
+    image: heroMacetas,
+    title: "Haz tus macetas de arcilla",
+    text: "Crea tus propias macetas de arcilla y disfruta de una experiencia creativa, relajante y artesanal. Este kit incluye todo lo necesario para modelar, pintar y personalizar piezas únicas hechas por ti. ¡Deja fluir tu creatividad y crea piezas únicas para llenar de vida cualquier rincón!",
+  },
+];
 
 function SymbolSostenibles({ className }: { className?: string }) {
   return (
@@ -202,14 +226,15 @@ function Hero() {
   const [i, setI] = useState(0);
 
   const go = (dir: 1 | -1) => setI((v) => (v + dir + slides.length) % slides.length);
+  const slide = slides[i] ?? slides[0]!;
 
   return (
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
       <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem]">
         <div className="relative min-h-[480px] md:min-h-[640px]">
           <img
-            src={slides[i] ?? slides[0]}
-            alt="Regalos plantables Resetea"
+            src={slide.image}
+            alt={slide.title}
             className="absolute inset-0 size-full object-cover"
           />
 
@@ -232,21 +257,22 @@ function Hero() {
 
           <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col items-start justify-center px-4 py-20 text-left sm:pl-[48%] md:min-h-[640px] md:px-12 md:pl-[48%]">
             <motion.h1
+              key={`title-${i}`}
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl font-display text-5xl text-white sm:text-7xl lg:text-8xl"
             >
-              Pide un deseo
+              {slide.title}
             </motion.h1>
             <motion.p
+              key={`text-${i}`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.6 }}
               className="mt-6 max-w-md text-base font-semibold text-white sm:text-lg"
             >
-              Cultiva tu diente de león en casa con este kit completo y espera a que llegue el
-              momento de soplar y pedir un deseo.
+              {slide.text}
             </motion.p>
             <Link
               to="/tienda"
@@ -264,7 +290,7 @@ function Hero() {
           >
             {slides.map((s, idx) => (
               <button
-                key={s}
+                key={s.title}
                 type="button"
                 aria-label={`Imagen ${idx + 1}`}
                 onClick={() => setI(idx)}
@@ -553,7 +579,7 @@ function Home() {
           <h3 className="font-display text-3xl sm:text-5xl">Personalizados</h3>
           <p className="mt-3 max-w-sm font-semibold">
             Personalizamos semillas, mensajes y packaging para tu marca o evento.
-          </p>
+         </p>
           <Link
             to="/contacto"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"

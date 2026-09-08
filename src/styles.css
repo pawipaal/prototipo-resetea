@@ -67,6 +67,14 @@
   --color-sky: var(--brand-pink-soft);
   --color-sky-foreground: var(--brand-forest);
 
+  --color-peach: var(--brand-peach);
+  --color-terracotta: var(--brand-terracotta);
+  --color-cloud: var(--brand-cloud);
+  --color-azure: var(--brand-azure);
+  --color-sage: var(--brand-sage);
+  --color-moss: var(--brand-moss);
+  --color-honey: var(--brand-honey);
+
   --color-chart-1: var(--brand-pink);
   --color-chart-2: var(--brand-lilac);
   --color-chart-3: var(--brand-lilac-deep);
@@ -94,6 +102,14 @@
   --brand-pink: #fbb8dd;
   --brand-pink-soft: #ffd9ee;
   --brand-cream: #fdf9f0;
+
+  --brand-peach: #e8b796;
+  --brand-terracotta: #cb4f33;
+  --brand-cloud: #c3d8ec;
+  --brand-azure: #63b6e0;
+  --brand-sage: #c4d59f;
+  --brand-moss: #84b55b;
+  --brand-honey: #f1cf8a;
 
   --background: #fdf9f0;
   --foreground: #3a2518;

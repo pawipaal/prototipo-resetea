@@ -1,9 +1,9 @@
-import catNovedades from "@/assets/cat-novedades.jpg";
 import catGourmet from "@/assets/cat-gourmet.jpg";
 import catFlores from "@/assets/cat-flores.jpg";
 import catNinos from "@/assets/cat-ninos.jpg";
 import catPapeleria from "@/assets/cat-papeleria.jpg";
 import catKits from "@/assets/cat-kits.jpg";
+import catDiy from "@/assets/cat-diy.jpg";
 
 export type Accent = "pink" | "amber" | "lime" | "peri" | "orange" | "sky";
 
@@ -37,13 +37,6 @@ export type Product = {
 
 export const categories: Category[] = [
   {
-    slug: "novedades",
-    name: "Novedades",
-    tagline: "Lo último que ha florecido",
-    image: catNovedades,
-    accent: "lime",
-  },
-  {
     slug: "gourmet",
     name: "Gourmet",
     tagline: "Sabor con conciencia",
@@ -59,17 +52,10 @@ export const categories: Category[] = [
   },
   {
     slug: "cultivos-para-ninos",
-    name: "Cultivos para niños",
+    name: "Infantil",
     tagline: "Sembrar jugando",
     image: catNinos,
     accent: "peri",
-  },
-  {
-    slug: "papeleria-plantable",
-    name: "Papelería plantable",
-    tagline: "Escribe hoy, florece mañana",
-    image: catPapeleria,
-    accent: "sky",
   },
   {
     slug: "kits-originales",
@@ -77,6 +63,20 @@ export const categories: Category[] = [
     tagline: "Regalos que nadie espera",
     image: catKits,
     accent: "orange",
+  },
+  {
+    slug: "kits-diy",
+    name: "Kits DIY",
+    tagline: "Para crear con tus manos",
+    image: catDiy,
+    accent: "amber",
+  },
+  {
+    slug: "papeleria-plantable",
+    name: "Papelería plantable",
+    tagline: "Escribe hoy, florece mañana",
+    image: catPapeleria,
+    accent: "sky",
   },
 ];
 
@@ -185,7 +185,7 @@ export const products: Product[] = [
     name: "Haz tus Macetas de Arcilla",
     price: 29.9,
     image: "https://resetea.es/wp-content/uploads/2026/07/Resetea-DIY-Macetas-ES-1.webp",
-    category: "kits-originales",
+    category: "kits-diy",
     accent: "orange",
     occasions: ["Sin ocasión", "Detalle de empresa"],
     types: ["Macetas"],
@@ -210,7 +210,7 @@ export const products: Product[] = [
     name: "Haz tus Bombas de Flores",
     price: 19.9,
     image: "https://resetea.es/wp-content/uploads/2026/07/Resetea-DIY-Bombas-ES-1.webp",
-    category: "kits-originales",
+    category: "kits-diy",
     accent: "lime",
     occasions: ["Sin ocasión", "Agradecimiento"],
     types: ["Kit de siembra", "Flores"],
@@ -235,7 +235,7 @@ export const products: Product[] = [
     name: "Haz tus Adornos Navideños",
     price: 29.9,
     image: "https://resetea.es/wp-content/uploads/2026/07/Resetea-DIY-Adornos-ES-1-scaled.webp",
-    category: "kits-originales",
+    category: "kits-diy",
     accent: "peri",
     occasions: ["Navidad"],
     types: ["Macetas"],

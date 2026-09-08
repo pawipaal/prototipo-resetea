@@ -56,6 +56,17 @@ const slides = [
   },
 ];
 
+const CATEGORY_CARD_STYLES: Record<string, { bg: string; hoverText: string }> = {
+  gourmet: { bg: "bg-peach", hoverText: "group-hover:text-terracotta" },
+  "flores-y-biodiversidad": { bg: "bg-cloud", hoverText: "group-hover:text-azure" },
+  "cultivos-para-ninos": { bg: "bg-lime", hoverText: "group-hover:text-peri" },
+  "kits-originales": { bg: "bg-sage", hoverText: "group-hover:text-moss" },
+  "kits-diy": { bg: "bg-honey", hoverText: "group-hover:text-orange" },
+  "papeleria-plantable": { bg: "bg-sky", hoverText: "group-hover:text-pink" },
+};
+
+const DEFAULT_CATEGORY_CARD_STYLE = { bg: "bg-cream", hoverText: "group-hover:text-forest" };
+
 function SymbolSostenibles({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 500 500" className={className} aria-hidden>
@@ -449,40 +460,41 @@ function Home() {
 
       <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <SectionTitle>Compra por categoría</SectionTitle>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 0.05}>
-                <Link
-                  to="/categoria/$slug"
-                  params={{ slug: c.slug }}
-                  className="group relative block overflow-hidden rounded-3xl"
-                >
-                  <div className="tint-lilac relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={c.image}
-                      alt={c.name}
-                      loading="lazy"
-                      width={900}
-                      height={675}
-                      className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <span
-                    className={cn(
-                      "sticker-oval absolute bottom-4 left-4 px-5 py-3 font-display text-sm transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110",
-                      i % 3 === 0
-                        ? "bg-amber text-amber-foreground"
-                        : i % 3 === 1
-                          ? "bg-pink text-pink-foreground"
-                          : "bg-cream text-forest",
-                    )}
-                  >
-                    {c.name}
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c, i) => {
+              const style = CATEGORY_CARD_STYLES[c.slug] ?? DEFAULT_CATEGORY_CARD_STYLE;
+              return (
+                <Reveal key={c.slug} delay={i * 0.05}>
+                  <Link to="/categoria/$slug" params={{ slug: c.slug }} className="group block">
+                    <div
+                      className={cn(
+                        "rounded-3xl p-5 transition-colors duration-300 group-hover:bg-transparent",
+                        style.bg,
+                      )}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                        <img
+                          src={c.image}
+                          alt={c.name}
+                          loading="lazy"
+                          width={900}
+                          height={675}
+                          className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                    <p
+                      className={cn(
+                        "mt-4 text-center font-display text-lg text-forest transition-colors duration-300",
+                        style.hoverText,
+                      )}
+                    >
+                      {c.name}
+                    </p>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

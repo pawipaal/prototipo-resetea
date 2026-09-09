@@ -75,6 +75,14 @@
   --color-moss: var(--brand-moss);
   --color-honey: var(--brand-honey);
 
+  /* Paleta exacta de acentos puntuales (menú, footer…): sin variar luminosidad */
+  --color-gold: var(--brand-gold);
+  --color-gold-foreground: var(--brand-forest);
+  --color-pink-vivid: var(--brand-pink-vivid);
+  --color-pink-vivid-foreground: var(--brand-forest);
+  --color-purple-vivid: var(--brand-purple-vivid);
+  --color-purple-vivid-foreground: var(--brand-cream);
+
   --color-chart-1: var(--brand-pink);
   --color-chart-2: var(--brand-lilac);
   --color-chart-3: var(--brand-lilac-deep);
@@ -110,6 +118,11 @@
   --brand-sage: #c4d59f;
   --brand-moss: #84b55b;
   --brand-honey: #f1cf8a;
+
+  /* Paleta exacta de acentos puntuales, tal cual (sin aclarar/oscurecer) */
+  --brand-gold: #e4a92a;
+  --brand-pink-vivid: #d98ab1;
+  --brand-purple-vivid: #8c83ba;
 
   --background: #fdf9f0;
   --foreground: #3a2518;

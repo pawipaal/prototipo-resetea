@@ -16,23 +16,7 @@ const shopNav = [
   { label: "Papelería plantable", slug: "papeleria-plantable" },
 ];
 
-// Un punto de color exacto de la paleta por categoría, para identificarlas de un
-// vistazo en el menú. "Ver todo" queda neutro a propósito.
-const NAV_DOT_COLOR: Record<string, string> = {
-  gourmet: "bg-terracotta",
-  "flores-y-biodiversidad": "bg-azure",
-  "cultivos-para-ninos": "bg-pink-vivid",
-  "kits-originales": "bg-moss",
-  "papeleria-plantable": "bg-purple-vivid",
-};
-
 const navLink = "font-display text-[13px] tracking-tight underline-offset-8 hover:underline";
-
-function NavDot({ slug }: { slug?: string }) {
-  const color = slug ? NAV_DOT_COLOR[slug] : undefined;
-  if (!color) return null;
-  return <span aria-hidden className={cn("inline-block size-1.5 rounded-full", color)} />;
-}
 
 export function Header() {
   const { count, setOpen } = useCart();
@@ -132,16 +116,15 @@ export function Header() {
                     to="/categoria/$slug"
                     params={{ slug: item.slug }}
                     onClick={() => setMenu(false)}
-                    className={cn(navLink, "flex items-center gap-2 py-2")}
+                    className={cn(navLink, "block py-2")}
                   >
-                    <NavDot slug={item.slug} />
                     {item.label}
                   </Link>
                 ) : (
                   <Link
                     to="/tienda"
                     onClick={() => setMenu(false)}
-                    className={cn(navLink, "flex items-center gap-2 py-2")}
+                    className={cn(navLink, "block py-2")}
                   >
                     {item.label}
                   </Link>
@@ -180,16 +163,15 @@ export function Header() {
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: item.slug }}
-                    className={cn(navLink, "inline-flex items-center gap-1.5 font-bold")}
+                    className={cn(navLink, "font-bold")}
                     activeProps={{ className: "underline" }}
                   >
-                    <NavDot slug={item.slug} />
                     {item.label}
                   </Link>
                 ) : (
                   <Link
                     to="/tienda"
-                    className={cn(navLink, "inline-flex items-center gap-1.5 font-bold")}
+                    className={cn(navLink, "font-bold")}
                     activeProps={{ className: "underline" }}
                   >
                     {item.label}

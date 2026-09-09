@@ -426,7 +426,7 @@ function Home() {
     <main>
       <Hero />
 
-      <section className="relative overflow-hidden bg-[#abd4ff]">
+      <section className="relative overflow-hidden bg-cloud">
         <svg
           aria-hidden
           className="absolute inset-x-0 top-0 h-8 w-full text-background sm:h-14"

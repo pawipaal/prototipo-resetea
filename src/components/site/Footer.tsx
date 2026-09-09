@@ -21,12 +21,13 @@ const ayudaLinks = [
   { label: "Política de cookies", to: null },
 ];
 
+// Colores exactos de la paleta de marca, sin aclarar ni oscurecer.
 const socialIcons = [
-  { icon: MapPin, label: "Ubicación", bg: "bg-amber", fg: "text-amber-foreground" },
-  { icon: Mail, label: "Email", bg: "bg-pink", fg: "text-pink-foreground" },
-  { icon: Phone, label: "Teléfono", bg: "bg-lilac", fg: "text-lilac-foreground" },
-  { icon: Instagram, label: "Instagram", bg: "bg-sky", fg: "text-sky-foreground" },
-  { icon: Linkedin, label: "LinkedIn", bg: "bg-honey", fg: "text-forest" },
+  { icon: MapPin, label: "Ubicación", bg: "bg-gold", fg: "text-gold-foreground" },
+  { icon: Mail, label: "Email", bg: "bg-terracotta", fg: "text-forest" },
+  { icon: Phone, label: "Teléfono", bg: "bg-azure", fg: "text-forest" },
+  { icon: Instagram, label: "Instagram", bg: "bg-pink-vivid", fg: "text-pink-vivid-foreground" },
+  { icon: Linkedin, label: "LinkedIn", bg: "bg-purple-vivid", fg: "text-purple-vivid-foreground" },
 ];
 
 export function Footer() {

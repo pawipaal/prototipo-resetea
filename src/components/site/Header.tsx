@@ -13,6 +13,7 @@ const shopNav = [
   { label: "Flores y biodiversidad", slug: "flores-y-biodiversidad" },
   { label: "Infantil", slug: "cultivos-para-ninos" },
   { label: "Kits originales", slug: "kits-originales" },
+  { label: "Kits DIY", slug: "kits-diy" },
   { label: "Papelería plantable", slug: "papeleria-plantable" },
 ];
 

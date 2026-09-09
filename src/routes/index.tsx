@@ -561,9 +561,11 @@ function Home() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl sm:text-6xl">Nuestra historia</h2>
             <p className="mt-5 font-semibold opacity-90">
-              Empezamos en un taller pequeño con una idea grande: que un regalo pueda seguir vivo
-              después de abrirlo. Hoy fabricamos papel semilla y kits de siembra en España, con
-              materiales que vuelven a la tierra y personas que los cuidan.
+              Resetea empieza a coger forma en el año 2011 cuando la idea de Iñaki de cultivar
+              setas sobre la cascarilla que recubre el grano del café es galardonada en el XII
+              Concurso de ideas empresariales innovadoras de la Universidad de Santiago de
+              Compostela. A partir de ahí comienza un concienzudo proceso de investigación y
+              numerosos experimentos.
             </p>
             <Link
               to="/nuestra-historia"

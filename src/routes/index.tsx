@@ -346,7 +346,7 @@ function GiftFinder() {
     );
 
   const groups = [
-    { title: "Ocasión", items: occasionFilters, value: occasion, set: setOccasion },
+    { title: "¿Para qué o quién?", items: occasionFilters, value: occasion, set: setOccasion },
     { title: "Tipo de producto", items: typeFilters, value: type, set: setType },
     {
       title: "Presupuesto",
@@ -360,18 +360,19 @@ function GiftFinder() {
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac text-forest">
         <div className="px-6 py-16 md:px-12 md:py-24">
-          <h2 className="max-w-3xl font-display text-4xl sm:text-6xl">
+          <h2 className="whitespace-nowrap font-display text-2xl sm:text-4xl lg:text-6xl">
             Encuentra el regalo perfecto
           </h2>
-          <p className="mt-3 max-w-md font-semibold">
-            Dinos para quién es y te enseñamos lo que más florece.
+          <p className="mt-3 max-w-xl font-semibold">
+            Busca por palabra o elige ocasión, tipo de producto y presupuesto. ¡Te llevamos
+            directo a los productos que encajan!
           </p>
 
           <label className="mt-8 flex max-w-xl items-center gap-3 rounded-full bg-cream px-5 py-3.5">
             <Search className="size-4" />
             <input
               type="search"
-              placeholder="¿Qué estás buscando?"
+              placeholder="Busca un regalo: kit de cultivo, lápiz..."
               className="w-full bg-transparent text-sm outline-none"
             />
           </label>

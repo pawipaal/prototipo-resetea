@@ -8,7 +8,8 @@
  * Resetea — lenguaje visual "Brush & Banter":
  * bloques planos de color saturado, tinta verde bosque,
  * stickers amarillos/rosas y titulares enormes en Candal.
- * Lila #C9B6FF · Verde #0B3B24 · Amarillo #F2D024 · Rosa #FBB8DD · Crema #FDF9F0
+ * Morado #8C83BA · Terracota #CB4F33 · Dorado #E4A92A · Azul #63B6E0
+ * Verde musgo #84B55B · Rosa #D98AB1 · Crema #FCF5E2 · Tinta #3A2518
  * Nunca escribas colores literales en los componentes: usa estos tokens.
  */
 
@@ -94,49 +95,49 @@
 :root {
   --radius: 1rem;
 
-  --brand-lilac: #c9b6ff;
-  --brand-lilac-deep: #ab8dff;
+  --brand-lilac: #8c83ba;
+  --brand-lilac-deep: #6d6691;
   --brand-forest: #3a2518;
-  --brand-yellow: #f2d024;
-  --brand-yellow-deep: #e0b400;
-  --brand-pink: #fbb8dd;
-  --brand-pink-soft: #ffd9ee;
-  --brand-cream: #fdf9f0;
+  --brand-yellow: #e4a92a;
+  --brand-yellow-deep: #bb8b22;
+  --brand-pink: #d98ab1;
+  --brand-pink-soft: #e6b3cc;
+  --brand-cream: #fcf5e2;
 
-  --brand-peach: #e8b796;
+  --brand-peach: #e29e8f;
   --brand-terracotta: #cb4f33;
-  --brand-cloud: #c3d8ec;
+  --brand-cloud: #b9def1;
   --brand-azure: #63b6e0;
-  --brand-sage: #c4d59f;
+  --brand-sage: #c2daad;
   --brand-moss: #84b55b;
-  --brand-honey: #f1cf8a;
+  --brand-honey: #efcd83;
 
-  --background: #fdf9f0;
+  --background: #fcf5e2;
   --foreground: #3a2518;
   --card: #ffffff;
   --card-foreground: #3a2518;
   --popover: #ffffff;
   --popover-foreground: #3a2518;
   --primary: #3a2518;
-  --primary-foreground: #fdf9f0;
-  --secondary: #f2ecdd;
+  --primary-foreground: #fcf5e2;
+  --secondary: #f3ecd9;
   --secondary-foreground: #3a2518;
-  --muted: #f2ecdd;
+  --muted: #f3ecd9;
   --muted-foreground: #3a2518;
-  --accent: #c9b6ff;
-  --accent-foreground: #3a2518;
+  --accent: #8c83ba;
+  --accent-foreground: #fcf5e2;
   --destructive: oklch(0.6 0.23 25);
-  --destructive-foreground: #fdf9f0;
+  --destructive-foreground: #fcf5e2;
   --border: #3a2518;
   --input: #3a2518;
   --ring: #3a2518;
 
-  --sidebar: #fdf9f0;
+  --sidebar: #fcf5e2;
   --sidebar-foreground: #3a2518;
   --sidebar-primary: #3a2518;
-  --sidebar-primary-foreground: #fdf9f0;
-  --sidebar-accent: #c9b6ff;
-  --sidebar-accent-foreground: #3a2518;
+  --sidebar-primary-foreground: #fcf5e2;
+  --sidebar-accent: #8c83ba;
+  --sidebar-accent-foreground: #fcf5e2;
   --sidebar-border: #3a2518;
   --sidebar-ring: #3a2518;
 
@@ -145,22 +146,22 @@
 
 .dark {
   --background: #3a2518;
-  --foreground: #fdf9f0;
+  --foreground: #fcf5e2;
   --card: #12503050;
-  --card-foreground: #fdf9f0;
+  --card-foreground: #fcf5e2;
   --popover: #0f4a2d;
-  --popover-foreground: #fdf9f0;
-  --primary: #fdf9f0;
+  --popover-foreground: #fcf5e2;
+  --primary: #fcf5e2;
   --primary-foreground: #3a2518;
   --secondary: #12502f;
-  --secondary-foreground: #fdf9f0;
+  --secondary-foreground: #fcf5e2;
   --muted: #12502f;
   --muted-foreground: #b7d0c1;
-  --accent: #c9b6ff;
-  --accent-foreground: #3a2518;
-  --border: #fdf9f033;
-  --input: #fdf9f033;
-  --ring: #c9b6ff;
+  --accent: #8c83ba;
+  --accent-foreground: #fcf5e2;
+  --border: #fcf5e233;
+  --input: #fcf5e233;
+  --ring: #8c83ba;
   --brand-cream: #0f4a2d;
 }
 

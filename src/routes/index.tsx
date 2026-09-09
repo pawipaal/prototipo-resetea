@@ -581,14 +581,14 @@ function Home() {
         <Reveal className="bg-amber px-6 py-16 text-amber-foreground md:px-12">
           <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
           <p className="mt-3 max-w-sm font-semibold">
-            Vende Resetea en tu espacio con condiciones mayoristas.
+            Accede a Resetea para profesionales y vende nuestros productos en tu tienda o negocio.
           </p>
-          <Link
-            to="/contacto"
+          <button
+            type="button"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
           >
-            Hablemos <ArrowRight className="size-4" />
-          </Link>
+            Acceder a Resetea para profesionales <ArrowRight className="size-4" />
+          </button>
         </Reveal>
         <Reveal delay={0.08} className="bg-pink px-6 py-16 text-pink-foreground md:px-12">
           <h3 className="font-display text-3xl sm:text-5xl">Personalizados</h3>

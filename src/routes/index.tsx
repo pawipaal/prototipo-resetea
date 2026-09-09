@@ -359,11 +359,11 @@ function GiftFinder() {
   return (
     <section className="bg-background px-4 py-6 md:px-8 md:py-10">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-lilac text-forest">
-        <div className="px-6 py-16 md:px-12 md:py-24">
+        <div className="px-6 pt-10 pb-16 md:px-12 md:pt-14 md:pb-24">
           <h2 className="whitespace-nowrap font-display text-2xl sm:text-4xl lg:text-6xl">
             Encuentra el regalo perfecto
           </h2>
-          <p className="mt-3 max-w-xl font-semibold">
+          <p className="mt-6 max-w-xl font-semibold">
             Busca por palabra o elige ocasión, tipo de producto y presupuesto. ¡Te llevamos
             directo a los productos que encajan!
           </p>

@@ -482,15 +482,15 @@ function Home() {
                           className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
+                      <p
+                        className={cn(
+                          "mt-4 text-center font-display text-lg text-forest transition-colors duration-300",
+                          style.hoverText,
+                        )}
+                      >
+                        {c.name}
+                      </p>
                     </div>
-                    <p
-                      className={cn(
-                        "mt-4 text-center font-display text-lg text-forest transition-colors duration-300",
-                        style.hoverText,
-                      )}
-                    >
-                      {c.name}
-                    </p>
                   </Link>
                 </Reveal>
               );

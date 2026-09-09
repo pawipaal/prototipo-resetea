@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react";
-import logoVertical from "@/assets/logo-resetea-vertical.png";
+import logoVertical from "@/assets/logo-resetea-vertical-white.png";
 
 const tiendaLinks = [
   { slug: "gourmet", name: "Gourmet" },
@@ -32,7 +32,7 @@ const socialIcons = [
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className="bg-forest text-forest-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" aria-label="Resetea, inicio">
@@ -113,7 +113,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-forest/10 py-5 text-center text-xs opacity-70">
+      <div className="border-t border-forest-foreground/15 py-5 text-center text-xs opacity-70">
         © {new Date().getFullYear()}. Resetea Gestión Responsable S.L.
       </div>
     </footer>

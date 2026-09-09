@@ -410,10 +410,10 @@ function GiftFinder() {
 }
 
 const HOME_NOVEDADES_SLUGS = [
+  "kit-cultivo-diente-de-leon",
   "kit-cultivo-no-me-olvides",
+  "kit-terrarium-pino",
   "haz-macetas-arcilla",
-  "postales-plantables-navidenas",
-  "calendario-plantable-2027",
 ];
 
 function Home() {

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react";
-import { Logo } from "./Logo";
+import logoVertical from "@/assets/logo-resetea-vertical.png";
 
 const tiendaLinks = [
   { slug: "gourmet", name: "Gourmet" },
@@ -34,7 +34,9 @@ export function Footer() {
     <footer className="bg-secondary text-secondary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo onLight />
+          <Link to="/" aria-label="Resetea, inicio">
+            <img src={logoVertical} alt="Resetea" className="h-28 w-auto" />
+          </Link>
         </div>
 
         <div>

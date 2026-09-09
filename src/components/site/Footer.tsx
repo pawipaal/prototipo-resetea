@@ -1,108 +1,117 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Mail } from "lucide-react";
+import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react";
 import { Logo } from "./Logo";
-import { categories } from "@/data/products";
+
+const tiendaLinks = [
+  { slug: "gourmet", name: "Gourmet" },
+  { slug: "flores-y-biodiversidad", name: "Flores y biodiversidad" },
+  { slug: "cultivos-para-ninos", name: "Infantil" },
+  { slug: "kits-diy", name: "Kits DIY" },
+  { slug: "kits-originales", name: "Kits originales" },
+  { slug: "papeleria-plantable", name: "Papelería plantable" },
+];
+
+const ayudaLinks = [
+  { label: "Contacto", to: "/contacto" as const },
+  { label: "FAQs", to: null },
+  { label: "Guías de cuidado", to: null },
+  { label: "Términos y condiciones", to: null },
+  { label: "Política de privacidad", to: null },
+  { label: "Devoluciones y reembolsos", to: null },
+  { label: "Política de cookies", to: null },
+];
+
+const socialIcons = [
+  { icon: MapPin, label: "Ubicación", bg: "bg-amber", fg: "text-amber-foreground" },
+  { icon: Mail, label: "Email", bg: "bg-pink", fg: "text-pink-foreground" },
+  { icon: Phone, label: "Teléfono", bg: "bg-lilac", fg: "text-lilac-foreground" },
+  { icon: Instagram, label: "Instagram", bg: "bg-sky", fg: "text-sky-foreground" },
+  { icon: Linkedin, label: "LinkedIn", bg: "bg-honey", fg: "text-forest" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-forest text-forest-foreground">
+    <footer className="bg-secondary text-secondary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo onLight={false} />
-          <p className="mt-4 max-w-xs text-sm opacity-85">
-            Regalos que se plantan. Diseñados y fabricados en España con materiales que vuelven a la
-            tierra.
-          </p>
-          <div className="mt-5 flex gap-3">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="sticker-oval grid size-11 place-items-center bg-amber text-amber-foreground transition hover:scale-110"
-            >
-              <Instagram className="size-5" />
-            </a>
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="sticker-blob grid size-11 place-items-center bg-pink text-pink-foreground transition hover:scale-110"
-            >
-              <Facebook className="size-5" />
-            </a>
-            <a
-              href="#"
-              aria-label="Email"
-              className="sticker-flower grid size-11 place-items-center bg-lilac text-lilac-foreground transition hover:scale-110"
-            >
-              <Mail className="size-5" />
-            </a>
-          </div>
+          <Logo onLight />
         </div>
 
         <div>
           <h3 className="font-display text-xl">Tienda</h3>
           <ul className="mt-4 space-y-2 text-sm opacity-85">
-            <li>
-              <Link to="/tienda" className="hover:underline">
-                Ver todo
-              </Link>
-            </li>
-            {categories.slice(0, 4).map((c) => (
+            {tiendaLinks.map((c) => (
               <li key={c.slug}>
                 <Link to="/categoria/$slug" params={{ slug: c.slug }} className="hover:underline">
                   {c.name}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link to="/tienda" className="hover:underline">
+                Ver todo
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-display text-xl">Resetea</h3>
+          <h3 className="font-display text-xl">Ayuda</h3>
+          <ul className="mt-4 space-y-2 text-sm opacity-85">
+            {ayudaLinks.map((item) =>
+              item.to ? (
+                <li key={item.label}>
+                  <Link to={item.to} className="hover:underline">
+                    {item.label}
+                  </Link>
+                </li>
+              ) : (
+                <li key={item.label}>
+                  <a href="#" className="hover:underline">
+                    {item.label}
+                  </a>
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-display text-xl">Sobre Resetea</h3>
           <ul className="mt-4 space-y-2 text-sm opacity-85">
             <li>
               <Link to="/nuestra-historia" className="hover:underline">
-                Nuestra historia
+                Nosotros
               </Link>
             </li>
             <li>
-              <Link to="/contacto" className="hover:underline">
-                Contacto
-              </Link>
+              <a href="#" className="hover:underline">
+                Acceso para tiendas
+              </a>
             </li>
             <li>
-              <Link to="/carrito" className="hover:underline">
-                Cesta
-              </Link>
+              <a href="#" className="hover:underline">
+                Acceso a Resetea promocional
+              </a>
             </li>
           </ul>
-        </div>
-
-        <div>
-          <h3 className="font-display text-xl">Newsletter</h3>
-          <p className="mt-4 text-sm opacity-85">Ideas que germinan, una vez al mes.</p>
-          <form
-            className="mt-4 flex overflow-hidden rounded-full p-1"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              required
-              placeholder="tu@email.com"
-              aria-label="Email"
-              className="w-full bg-transparent px-4 text-sm outline-none placeholder:text-forest-foreground/50"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-amber px-4 py-2 font-display text-xs text-amber-foreground"
-            >
-              Unirme
-            </button>
-          </form>
+          <div className="mt-5 flex gap-3">
+            {socialIcons.map(({ icon: Icon, label, bg, fg }) => (
+              <a
+                key={label}
+                href="#"
+                aria-label={label}
+                className={`sticker-oval grid size-11 place-items-center ${bg} ${fg} transition hover:scale-110`}
+              >
+                <Icon className="size-5" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="py-5 text-center text-xs opacity-70">
-        © {new Date().getFullYear()} Resetea · Aviso legal · Privacidad · Cookies
+      <div className="border-t border-forest/10 py-5 text-center text-xs opacity-70">
+        © {new Date().getFullYear()}. Resetea Gestión Responsable S.L.
       </div>
     </footer>
   );

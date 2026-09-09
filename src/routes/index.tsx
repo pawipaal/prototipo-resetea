@@ -591,15 +591,16 @@ function Home() {
           </button>
         </Reveal>
         <Reveal delay={0.08} className="bg-pink px-6 py-16 text-pink-foreground md:px-12">
-          <h3 className="font-display text-3xl sm:text-5xl">Personalizados</h3>
+          <h3 className="font-display text-3xl sm:text-5xl">Detalles personalizables</h3>
           <p className="mt-3 max-w-sm font-semibold">
-            Personalizamos semillas, mensajes y packaging para tu marca o evento.
+            ¿Quieres hacer un regalo corporativo o sorprender a tus empleados? ¿Estás preparando
+            el regalo de tu boda?
          </p>
           <Link
             to="/contacto"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
           >
-            Pide presupuesto <ArrowRight className="size-4" />
+            Accede a Resetea promocional <ArrowRight className="size-4" />
           </Link>
         </Reveal>
       </section>

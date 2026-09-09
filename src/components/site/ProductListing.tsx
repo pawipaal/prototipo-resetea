@@ -38,7 +38,7 @@ export function ProductListing({ items }: { items: Product[] }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[16rem_1fr]">
       <aside className="space-y-6">
-        <FilterGroup title="Ocasión">
+        <FilterGroup title="¿Para qué o quién?">
           {occasionFilters.map((o) => (
             <button
               key={o}

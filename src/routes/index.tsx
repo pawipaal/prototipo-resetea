@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Search } from "lucide-react";
@@ -9,6 +9,13 @@ import heroMacetas from "@/assets/hero-macetas.jpg";
 import story from "@/assets/story.jpg";
 import catFlores from "@/assets/cat-flores.jpg";
 import catGourmet from "@/assets/cat-gourmet.jpg";
+import igCalendarioPlantable from "@/assets/instagram/ig-calendario-plantable.jpg";
+import igSalviamoApi from "@/assets/instagram/ig-salviamo-api.jpg";
+import igBombasBiodiversidad from "@/assets/instagram/ig-bombas-biodiversidad.jpg";
+import igHappyBirthdayKit from "@/assets/instagram/ig-happy-birthday-kit.jpg";
+import igCuadernillosPlantables from "@/assets/instagram/ig-cuadernillos-plantables.jpg";
+import igMammaGrazieCresce from "@/assets/instagram/ig-mamma-grazie-cresce.jpg";
+import igGoodLuckClover from "@/assets/instagram/ig-good-luck-clover.jpg";
 import { budgetFilters, categories, occasionFilters, products, typeFilters } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
@@ -419,13 +426,13 @@ const HOME_NOVEDADES_SLUGS = [
 ];
 
 const INSTAGRAM_FEED = [
-  heroResetea,
-  story,
-  heroTerrarium,
-  heroNoMeOlvides,
-  catFlores,
-  heroMacetas,
-  catGourmet,
+  { src: igGoodLuckClover, alt: "Trébol de la suerte cultivado con nuestro kit, foto de una clienta etiquetando a @resetea en Instagram" },
+  { src: igBombasBiodiversidad, alt: "Bomba de biodiversidad germinando en una maceta, foto etiquetada a @resetea en Instagram" },
+  { src: igSalviamoApi, alt: "Kit de cultivo de flores melíferas ya germinado, foto etiquetada a @resetea en Instagram" },
+  { src: igMammaGrazieCresce, alt: "Regalo plantable de Resetea, foto etiquetada a @resetea en Instagram" },
+  { src: igCalendarioPlantable, alt: "Calendario plantable de Resetea en un escritorio, foto etiquetada a @resetea en Instagram" },
+  { src: igHappyBirthdayKit, alt: "Kit de cultivo de flores de cumpleaños, foto etiquetada a @resetea en Instagram" },
+  { src: igCuadernillosPlantables, alt: "Cuadernillos plantables de Resetea, foto etiquetada a @resetea en Instagram" },
 ];
 
 function Home() {
@@ -623,9 +630,11 @@ function Home() {
             <span className="font-display text-sm tracking-[0.2em] uppercase opacity-70">
               @resetea
             </span>
-            <h3 className="font-display text-3xl sm:text-5xl">Síguenos en Instagram</h3>
+            <h3 className="font-display text-3xl sm:text-5xl">
+              Enséñanos cómo cultivas nuestros productos
+            </h3>
             <p className="max-w-md font-semibold opacity-90">
-              Cultivos, ideas de regalo y el día a día del equipo de Resetea.
+              Etiquétanos (@resetea), nos encanta ver cómo crecen vuestras plantas
             </p>
             <a
               href="https://www.instagram.com/resetea/"
@@ -637,29 +646,65 @@ function Home() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-1.5 sm:gap-2 md:grid-cols-6">
-            {INSTAGRAM_FEED.map((src, i) => (
-              <a
-                key={i}
-                href="https://www.instagram.com/resetea/"
-                target="_blank"
-                rel="noreferrer"
-                className="group relative block aspect-square overflow-hidden"
-              >
-                <img
-                  src={src}
-                  alt="Publicación de Resetea en Instagram"
-                  loading="lazy"
-                  className="size-full object-cover transition duration-300 group-hover:scale-110"
-                />
-                <span className="absolute inset-0 grid place-items-center bg-forest/0 text-cream opacity-0 transition group-hover:bg-forest/50 group-hover:opacity-100">
-                  <Instagram className="size-6" strokeWidth={2} />
-                </span>
-              </a>
-            ))}
-          </div>
+          <InstagramCarousel />
         </Reveal>
       </section>
     </main>
+  );
+}
+
+function InstagramCarousel() {
+  const track = useRef<HTMLDivElement>(null);
+
+  const scrollByPage = (dir: 1 | -1) => {
+    const el = track.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative mt-10">
+      <div
+        ref={track}
+        className="hide-scrollbar flex snap-x snap-mandatory gap-1.5 overflow-x-auto scroll-smooth sm:gap-2"
+      >
+        {INSTAGRAM_FEED.map((item, i) => (
+          <a
+            key={i}
+            href="https://www.instagram.com/resetea/"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative block aspect-square w-[42%] shrink-0 snap-start overflow-hidden sm:w-[28%] md:w-[18%]"
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              className="size-full object-cover transition duration-300 group-hover:scale-110"
+            />
+            <span className="absolute inset-0 grid place-items-center bg-forest/0 text-cream opacity-0 transition group-hover:bg-forest/50 group-hover:opacity-100">
+              <Instagram className="size-6" strokeWidth={2} />
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => scrollByPage(-1)}
+        aria-label="Fotos anteriores"
+        className="absolute top-1/2 -left-2 hidden size-10 -translate-y-1/2 place-items-center rounded-full bg-forest text-forest-foreground transition hover:scale-110 sm:-left-4 sm:grid"
+      >
+        <ChevronLeft className="size-5" />
+      </button>
+      <button
+        type="button"
+        onClick={() => scrollByPage(1)}
+        aria-label="Fotos siguientes"
+        className="absolute top-1/2 -right-2 hidden size-10 -translate-y-1/2 place-items-center rounded-full bg-forest text-forest-foreground transition hover:scale-110 sm:-right-4 sm:grid"
+      >
+        <ChevronRight className="size-5" />
+      </button>
+    </div>
   );
 }

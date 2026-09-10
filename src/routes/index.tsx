@@ -7,6 +7,8 @@ import heroNoMeOlvides from "@/assets/hero-no-me-olvides.jpg";
 import heroTerrarium from "@/assets/hero-terrarium.jpg";
 import heroMacetas from "@/assets/hero-macetas.jpg";
 import story from "@/assets/story.jpg";
+import catFlores from "@/assets/cat-flores.jpg";
+import catGourmet from "@/assets/cat-gourmet.jpg";
 import { budgetFilters, categories, occasionFilters, products, typeFilters } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
@@ -416,6 +418,16 @@ const HOME_NOVEDADES_SLUGS = [
   "haz-macetas-arcilla",
 ];
 
+const INSTAGRAM_FEED = [
+  heroResetea,
+  story,
+  heroTerrarium,
+  heroNoMeOlvides,
+  catFlores,
+  heroMacetas,
+  catGourmet,
+];
+
 function Home() {
   const novedades = HOME_NOVEDADES_SLUGS.map((slug) =>
     products.find((p) => p.slug === slug),
@@ -606,23 +618,46 @@ function Home() {
       </section>
 
       <section className="bg-lilac text-forest">
-        <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 py-16 text-center">
-          <span className="sticker-oval grid size-16 place-items-center bg-forest text-cream">
-            <Instagram className="size-8" strokeWidth={2} />
-          </span>
-          <h3 className="font-display text-3xl sm:text-5xl">Síguenos en Instagram</h3>
-          <p className="max-w-md font-semibold opacity-90">
-            Cultivos, ideas de regalo y el día a día del equipo de Resetea. Únete a la comunidad
-            en @resetea.
-          </p>
-          <a
-            href="https://www.instagram.com/resetea/"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-2 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-cream transition hover:scale-105"
-          >
-            Seguir a @resetea <ArrowRight className="size-4" />
-          </a>
+        <Reveal className="mx-auto max-w-7xl px-4 py-16">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <span className="font-display text-sm tracking-[0.2em] uppercase opacity-70">
+              @resetea
+            </span>
+            <h3 className="font-display text-3xl sm:text-5xl">Síguenos en Instagram</h3>
+            <p className="max-w-md font-semibold opacity-90">
+              Cultivos, ideas de regalo y el día a día del equipo de Resetea.
+            </p>
+            <a
+              href="https://www.instagram.com/resetea/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-cream transition hover:scale-105"
+            >
+              Seguir a @resetea <ArrowRight className="size-4" />
+            </a>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-1.5 sm:gap-2 md:grid-cols-6">
+            {INSTAGRAM_FEED.map((src, i) => (
+              <a
+                key={i}
+                href="https://www.instagram.com/resetea/"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative block aspect-square overflow-hidden"
+              >
+                <img
+                  src={src}
+                  alt="Publicación de Resetea en Instagram"
+                  loading="lazy"
+                  className="size-full object-cover transition duration-300 group-hover:scale-110"
+                />
+                <span className="absolute inset-0 grid place-items-center bg-forest/0 text-cream opacity-0 transition group-hover:bg-forest/50 group-hover:opacity-100">
+                  <Instagram className="size-6" strokeWidth={2} />
+                </span>
+              </a>
+            ))}
+          </div>
         </Reveal>
       </section>
     </main>

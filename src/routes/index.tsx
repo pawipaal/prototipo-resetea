@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Instagram, Search } from "lucide-react";
 import heroResetea from "@/assets/hero-resetea-es.jpg";
 import heroNoMeOlvides from "@/assets/hero-no-me-olvides.jpg";
 import heroTerrarium from "@/assets/hero-terrarium.jpg";
@@ -602,6 +602,27 @@ function Home() {
           >
             Accede a Resetea promocional <ArrowRight className="size-4" />
           </Link>
+        </Reveal>
+      </section>
+
+      <section className="bg-lilac text-forest">
+        <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 py-16 text-center">
+          <span className="sticker-oval grid size-16 place-items-center bg-forest text-cream">
+            <Instagram className="size-8" strokeWidth={2} />
+          </span>
+          <h3 className="font-display text-3xl sm:text-5xl">Síguenos en Instagram</h3>
+          <p className="max-w-md font-semibold opacity-90">
+            Cultivos, ideas de regalo y el día a día del equipo de Resetea. Únete a la comunidad
+            en @resetea.
+          </p>
+          <a
+            href="https://www.instagram.com/resetea/"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-cream transition hover:scale-105"
+          >
+            Seguir a @resetea <ArrowRight className="size-4" />
+          </a>
         </Reveal>
       </section>
     </main>

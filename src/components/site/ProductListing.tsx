@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { ProductCard } from "./ProductCard";
 import { budgetFilters, occasionFilters, typeFilters, type Product } from "@/data/products";
 import { cn } from "@/lib/utils";
@@ -29,24 +30,27 @@ export function ProductListing({ items }: { items: Product[] }) {
     return sorted;
   }, [items, occasion, type, budget, sort]);
 
-  const chip = (active: boolean) =>
+  const item = (active: boolean) =>
     cn(
-      "rounded-full px-4 py-2 text-sm font-semibold transition",
-      active ? "scale-105 bg-pink text-pink-foreground" : "bg-card hover:text-pink",
+      "text-left text-sm transition",
+      active
+        ? "font-semibold text-forest underline underline-offset-4"
+        : "text-muted-foreground hover:text-forest",
     );
 
   return (
     <div className="grid gap-8 lg:grid-cols-[16rem_1fr]">
-      <aside className="space-y-6">
-        <FilterGroup title="¿Para qué o quién?">
-          {occasionFilters.map((o) => (
+      <aside className="space-y-5">
+        <h2 className="font-display text-xl">Filtrar</h2>
+        <FilterGroup title="Precio">
+          {budgetFilters.map((b) => (
             <button
-              key={o}
+              key={b.label}
               type="button"
-              className={chip(occasion.includes(o))}
-              onClick={() => toggle(occasion, setOccasion, o)}
+              className={item(budget === b.label)}
+              onClick={() => setBudget(budget === b.label ? null : b.label)}
             >
-              {o}
+              {b.label}
             </button>
           ))}
         </FilterGroup>
@@ -55,22 +59,22 @@ export function ProductListing({ items }: { items: Product[] }) {
             <button
               key={t}
               type="button"
-              className={chip(type.includes(t))}
+              className={item(type.includes(t))}
               onClick={() => toggle(type, setType, t)}
             >
               {t}
             </button>
           ))}
         </FilterGroup>
-        <FilterGroup title="Presupuesto">
-          {budgetFilters.map((b) => (
+        <FilterGroup title="Ocasión">
+          {occasionFilters.map((o) => (
             <button
-              key={b.label}
+              key={o}
               type="button"
-              className={chip(budget === b.label)}
-              onClick={() => setBudget(budget === b.label ? null : b.label)}
+              className={item(occasion.includes(o))}
+              onClick={() => toggle(occasion, setOccasion, o)}
             >
-              {b.label}
+              {o}
             </button>
           ))}
         </FilterGroup>
@@ -111,10 +115,18 @@ export function ProductListing({ items }: { items: Product[] }) {
 }
 
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(true);
   return (
-    <div>
-      <h3 className="font-display text-base">{title}</h3>
-      <div className="mt-3 flex flex-wrap gap-2">{children}</div>
+    <div className="border-b border-border/30 pb-4">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between font-display text-base"
+      >
+        {title}
+        <ChevronDown className={cn("size-4 transition-transform", open && "rotate-180")} />
+      </button>
+      {open ? <div className="mt-3 flex flex-col items-start gap-2.5">{children}</div> : null}
     </div>
   );
 }

@@ -257,6 +257,17 @@
   mask-image: radial-gradient(circle at 12px 12px, black 11px, transparent 12px);
 }
 
+@utility cloud-card {
+  mask-image: url("/scallop-mask.svg");
+  -webkit-mask-image: url("/scallop-mask.svg");
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
 @utility marquee-track {
   display: inline-flex;
   min-width: 200%;

@@ -1,7 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ProductListing } from "@/components/site/ProductListing";
 import { getCategory, productsByCategory } from "@/data/products";
-import { categoryBg } from "@/components/site/accents";
 
 export const Route = createFileRoute("/categoria/$slug")({
   loader: ({ params }) => {
@@ -37,24 +36,37 @@ function CategoryPage() {
   const { category, items } = Route.useLoaderData();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
-      <div
-        className={`flex flex-col gap-6 rounded-4xl p-8 md:flex-row md:items-center ${categoryBg[category.slug] ?? "bg-cream"}`}
-      >
-        <div className="flex-1">
-          <h1 className="font-display text-4xl md:text-5xl">{category.name}</h1>
-          <p className="mt-3 text-lg">{category.tagline}</p>
-        </div>
+    <main>
+      <section className="relative h-[300px] w-full overflow-hidden sm:h-[400px] md:h-[440px]">
         <img
           src={category.image}
           alt={category.name}
-          width={480}
-          height={320}
-          className="h-48 w-full rounded-3xl object-cover md:w-80"
+          className="absolute inset-0 size-full object-cover"
         />
-      </div>
-      <div className="mt-10">
-        <ProductListing items={items} />
+        <div className="absolute inset-0 bg-forest/40" />
+        <div className="relative flex h-full items-end px-4 pb-16 sm:px-8 md:px-12">
+          <h1 className="font-display text-5xl text-cream drop-shadow-md sm:text-7xl">
+            {category.name}
+          </h1>
+        </div>
+        <svg
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          className="absolute -bottom-px left-0 h-12 w-full text-background sm:h-20"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,45 C160,95 320,0 480,35 C640,70 800,95 960,55 C1120,15 1280,10 1440,45 L1440,100 L0,100 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-12 md:px-8">
+        <p className="max-w-xl text-lg text-muted-foreground">{category.tagline}</p>
+        <div className="mt-8">
+          <ProductListing items={items} />
+        </div>
       </div>
     </main>
   );

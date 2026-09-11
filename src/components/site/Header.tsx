@@ -92,7 +92,7 @@ export function Header() {
 
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="mx-2 hidden w-full min-w-0 max-w-3xl items-center justify-self-center rounded-full bg-white py-1 pr-1 pl-5 sm:flex md:mx-6 lg:max-w-4xl lg:justify-self-stretch"
+            className="hidden w-full min-w-0 max-w-3xl items-center justify-self-center rounded-full bg-white py-1 pr-1 pl-5 sm:flex lg:max-w-4xl lg:justify-self-stretch"
           >
             <input
               type="search"

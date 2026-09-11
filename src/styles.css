@@ -75,6 +75,14 @@
   --color-moss: var(--brand-moss);
   --color-honey: var(--brand-honey);
 
+  /* Colores exactos por categoría (home, cabecera de categoría, mega-menú) */
+  --color-cat-gourmet: var(--brand-cat-gourmet);
+  --color-cat-flores: var(--brand-cat-flores);
+  --color-cat-infantil: var(--brand-cat-infantil);
+  --color-cat-kits-originales: var(--brand-cat-kits-originales);
+  --color-cat-kits-diy: var(--brand-cat-kits-diy);
+  --color-cat-papeleria: var(--brand-cat-papeleria);
+
   /* Paleta exacta de acentos puntuales (menú, footer…): sin variar luminosidad */
   --color-gold: var(--brand-gold);
   --color-gold-foreground: var(--brand-forest);
@@ -118,6 +126,14 @@
   --brand-sage: #c4d59f;
   --brand-moss: #84b55b;
   --brand-honey: #f1cf8a;
+
+  /* Colores exactos por categoría */
+  --brand-cat-gourmet: #f6b896;
+  --brand-cat-flores: #bbd9eb;
+  --brand-cat-infantil: #c8bbd3;
+  --brand-cat-kits-originales: #bdd59e;
+  --brand-cat-kits-diy: #fbcf88;
+  --brand-cat-papeleria: #f7c4cf;
 
   /* Paleta exacta de acentos puntuales, tal cual (sin aclarar/oscurecer) */
   --brand-gold: #e4a92a;

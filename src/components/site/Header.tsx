@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, ShoppingCart, X } from "lucide-react";
+import { ChevronDown, Menu, ShoppingCart, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { MegaMenu } from "./MegaMenu";
 import { useCart } from "@/lib/cart";
+import { getCategory } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 const announcements = ["Envío gratuito a península a partir de 30€ de compra"];
@@ -17,14 +19,61 @@ const shopNav = [
   { label: "Papelería plantable", slug: "papeleria-plantable" },
 ];
 
+const languages = ["Español", "Alemán", "Francés", "Inglés", "Italiano"];
+
 const navLink = "font-display text-[13px] tracking-tight underline-offset-8 hover:underline";
 
 export function Header() {
   const { count, setOpen } = useCart();
   const [menu, setMenu] = useState(false);
+  const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
+  const [langOpen, setLangOpen] = useState(false);
+  const hoveredCategory = hoveredSlug ? getCategory(hoveredSlug) : undefined;
 
   return (
     <header className="sticky top-0 z-40 w-full">
+      {/* Barra de herramientas superior */}
+      <div className="hidden border-b border-forest/10 bg-cream lg:block">
+        <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-4 py-2 text-xs">
+          <Link to="/contacto" className="hover:underline">
+            Contacto
+          </Link>
+          <a href="#" onClick={(e) => e.preventDefault()} className="hover:underline">
+            ¿Tienes una tienda?
+          </a>
+          <a href="#" onClick={(e) => e.preventDefault()} className="hover:underline">
+            Detalles personalizables
+          </a>
+          <div
+            className="relative"
+            onMouseEnter={() => setLangOpen(true)}
+            onMouseLeave={() => setLangOpen(false)}
+          >
+            <button
+              type="button"
+              className="flex items-center gap-1 hover:underline"
+              aria-expanded={langOpen}
+            >
+              Elige tu idioma
+              <ChevronDown className="size-3.5" />
+            </button>
+            {langOpen ? (
+              <ul className="absolute top-full right-0 z-50 mt-1 min-w-[140px] rounded-xl border border-forest/10 bg-white py-2 shadow-lg">
+                {languages.map((lang) => (
+                  <li
+                    key={lang}
+                    aria-disabled="true"
+                    className="cursor-default px-4 py-1.5 text-forest/70 select-none"
+                  >
+                    {lang}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </div>
+      </div>
+
       {/* Fila 1: logo, buscador, cuenta y cesta */}
       <div className="bg-moss text-forest">
         <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-2 lg:grid-cols-[1fr_auto_1fr]">
@@ -155,11 +204,14 @@ export function Header() {
       </div>
 
       {/* Fila 2: navegación de tienda, tipo Amazon */}
-      <nav className="hidden bg-background lg:block">
+      <nav
+        className="relative hidden bg-background lg:block"
+        onMouseLeave={() => setHoveredSlug(null)}
+      >
         <div className="mx-auto max-w-7xl px-4">
           <ul className="flex items-center justify-center gap-7 py-2">
             {shopNav.map((item) => (
-              <li key={item.label}>
+              <li key={item.label} onMouseEnter={() => setHoveredSlug(item.slug ?? null)}>
                 {item.slug ? (
                   <Link
                     to="/categoria/$slug"
@@ -182,6 +234,8 @@ export function Header() {
             ))}
           </ul>
         </div>
+
+        {hoveredCategory ? <MegaMenu category={hoveredCategory} /> : null}
       </nav>
 
       <div className="overflow-hidden bg-forest py-2 text-forest-foreground">

@@ -44,7 +44,7 @@ function CategoryPage() {
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-forest/40" />
-        <div className="relative flex h-full items-end px-4 pb-16 sm:px-8 md:px-12">
+        <div className="relative flex h-full items-center justify-center px-4 pb-8 text-center sm:px-8 md:px-12">
           <h1 className="font-display text-5xl text-cream drop-shadow-md sm:text-7xl">
             {category.name}
           </h1>

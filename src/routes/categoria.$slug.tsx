@@ -1,7 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ProductListing } from "@/components/site/ProductListing";
 import { getCategory, productsByCategory } from "@/data/products";
-import { accentSoft } from "@/components/site/accents";
+import { categoryBg } from "@/components/site/accents";
 
 export const Route = createFileRoute("/categoria/$slug")({
   loader: ({ params }) => {
@@ -39,7 +39,7 @@ function CategoryPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-12">
       <div
-        className={`flex flex-col gap-6 rounded-4xl p-8 md:flex-row md:items-center ${accentSoft[category.accent]}`}
+        className={`flex flex-col gap-6 rounded-4xl p-8 md:flex-row md:items-center ${categoryBg[category.slug] ?? "bg-cream"}`}
       >
         <div className="flex-1">
           <h1 className="font-display text-4xl md:text-5xl">{category.name}</h1>

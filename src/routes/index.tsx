@@ -7,6 +7,8 @@ import heroNoMeOlvides from "@/assets/hero-no-me-olvides.jpg";
 import heroTerrarium from "@/assets/hero-terrarium.jpg";
 import heroMacetas from "@/assets/hero-macetas.jpg";
 import story from "@/assets/story.jpg";
+import cardTiendaBg from "@/assets/card-tienda-bg.png";
+import cardDetallesBg from "@/assets/card-detalles-bg.png";
 import catFlores from "@/assets/cat-flores.jpg";
 import catGourmet from "@/assets/cat-gourmet.jpg";
 import igCalendarioPlantable from "@/assets/instagram/ig-calendario-plantable.jpg";
@@ -524,34 +526,47 @@ function Home() {
 
       <section className="bg-background px-4 py-12 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
-          <Reveal className="cloud-card bg-amber px-8 py-14 text-amber-foreground md:px-12 md:py-16">
-            <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
-            <p className="mt-3 max-w-sm font-semibold">
-              Accede a Resetea para profesionales y vende nuestros productos en tu tienda o
-              negocio.
-            </p>
-            <button
-              type="button"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
-            >
-              Acceder a Resetea para profesionales <ArrowRight className="size-4" />
-            </button>
+          <Reveal className="relative">
+            <img
+              src={cardTiendaBg}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none w-full select-none"
+            />
+            <div className="absolute inset-0 flex flex-col justify-center px-10 py-10 text-amber-foreground md:px-16">
+              <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
+              <p className="mt-3 max-w-sm font-semibold">
+                Accede a Resetea para profesionales y vende nuestros productos en tu tienda o
+                negocio.
+              </p>
+              <button
+                type="button"
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
+              >
+                Acceder a Resetea para profesionales <ArrowRight className="size-4" />
+              </button>
+            </div>
           </Reveal>
-          <Reveal
-            delay={0.08}
-            className="cloud-card bg-pink px-8 py-14 text-pink-foreground md:px-12 md:py-16"
-          >
-            <h3 className="font-display text-3xl sm:text-5xl">Detalles personalizables</h3>
-            <p className="mt-3 max-w-sm font-semibold">
-              ¿Quieres hacer un regalo corporativo o sorprender a tus empleados? ¿Estás preparando
-              el regalo de tu boda?
-            </p>
-            <Link
-              to="/contacto"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
-            >
-              Accede a Resetea promocional <ArrowRight className="size-4" />
-            </Link>
+          <Reveal delay={0.08} className="relative">
+            <img
+              src={cardDetallesBg}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none w-full select-none"
+            />
+            <div className="absolute inset-0 flex flex-col justify-center px-10 py-10 text-pink-foreground md:px-16">
+              <h3 className="font-display text-3xl sm:text-5xl">Detalles personalizables</h3>
+              <p className="mt-3 max-w-sm font-semibold">
+                ¿Quieres hacer un regalo corporativo o sorprender a tus empleados? ¿Estás
+                preparando el regalo de tu boda?
+              </p>
+              <Link
+                to="/contacto"
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
+              >
+                Accede a Resetea promocional <ArrowRight className="size-4" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

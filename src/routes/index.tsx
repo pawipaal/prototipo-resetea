@@ -522,32 +522,38 @@ function Home() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-2">
-        <Reveal className="bg-amber px-6 py-16 text-amber-foreground md:px-12">
-          <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
-          <p className="mt-3 max-w-sm font-semibold">
-            Accede a Resetea para profesionales y vende nuestros productos en tu tienda o negocio.
-          </p>
-          <button
-            type="button"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
+      <section className="bg-background px-4 py-12 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
+          <Reveal className="cloud-card bg-amber px-8 py-14 text-amber-foreground md:px-12 md:py-16">
+            <h3 className="font-display text-3xl sm:text-5xl">¿Tienes una tienda?</h3>
+            <p className="mt-3 max-w-sm font-semibold">
+              Accede a Resetea para profesionales y vende nuestros productos en tu tienda o
+              negocio.
+            </p>
+            <button
+              type="button"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
+            >
+              Acceder a Resetea para profesionales <ArrowRight className="size-4" />
+            </button>
+          </Reveal>
+          <Reveal
+            delay={0.08}
+            className="cloud-card bg-pink px-8 py-14 text-pink-foreground md:px-12 md:py-16"
           >
-            Acceder a Resetea para profesionales <ArrowRight className="size-4" />
-          </button>
-        </Reveal>
-        <Reveal delay={0.08} className="bg-pink px-6 py-16 text-pink-foreground md:px-12">
-          <h3 className="font-display text-3xl sm:text-5xl">Detalles personalizables</h3>
-          <p className="mt-3 max-w-sm font-semibold">
-            ¿Quieres hacer un regalo corporativo o sorprender a tus empleados? ¿Estás preparando
-            el regalo de tu boda?
-         </p>
-          <Link
-            to="/contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
-          >
-            Accede a Resetea promocional <ArrowRight className="size-4" />
-          </Link>
-        </Reveal>
+            <h3 className="font-display text-3xl sm:text-5xl">Detalles personalizables</h3>
+            <p className="mt-3 max-w-sm font-semibold">
+              ¿Quieres hacer un regalo corporativo o sorprender a tus empleados? ¿Estás preparando
+              el regalo de tu boda?
+            </p>
+            <Link
+              to="/contacto"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 font-display text-sm text-forest-foreground transition hover:scale-105"
+            >
+              Accede a Resetea promocional <ArrowRight className="size-4" />
+            </Link>
+          </Reveal>
+        </div>
       </section>
 
       <section className="bg-lilac text-forest">

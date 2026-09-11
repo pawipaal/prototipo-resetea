@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductListing } from "@/components/site/ProductListing";
+import { GiftFinder } from "@/components/site/GiftFinder";
 import { products } from "@/data/products";
 
 export const Route = createFileRoute("/tienda")({
@@ -25,13 +26,17 @@ export const Route = createFileRoute("/tienda")({
 
 function Tienda() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="font-display text-4xl md:text-5xl">Todos los productos</h1>
-      <p className="mt-3 max-w-xl text-muted-foreground">
-        Regalos con vida dentro. Filtra por ocasión, tipo o presupuesto y encuentra el tuyo.
-      </p>
-      <div className="mt-10">
-        <ProductListing items={products} />
+    <main>
+      <GiftFinder />
+
+      <div className="mx-auto max-w-7xl px-4 py-12">
+        <h1 className="font-display text-4xl md:text-5xl">Todos los productos</h1>
+        <p className="mt-3 max-w-xl text-muted-foreground">
+          Regalos con vida dentro. Filtra por ocasión, tipo o presupuesto y encuentra el tuyo.
+        </p>
+        <div className="mt-10">
+          <ProductListing items={products} />
+        </div>
       </div>
     </main>
   );

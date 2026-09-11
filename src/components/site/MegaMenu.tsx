@@ -10,7 +10,7 @@ export function MegaMenu({ category }: { category: Category }) {
   return (
     <div
       className={cn(
-        "absolute inset-x-0 top-full z-30 border-t-4 border-forest shadow-[0_16px_32px_-12px_rgba(58,37,24,0.35)]",
+        "absolute inset-x-0 top-full z-30 shadow-[0_16px_32px_-12px_rgba(58,37,24,0.35)]",
         categoryBg[category.slug] ?? "bg-cream",
       )}
     >

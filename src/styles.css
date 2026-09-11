@@ -58,13 +58,13 @@
   --color-pink-foreground: var(--brand-forest);
   --color-amber: var(--brand-yellow);
   --color-amber-foreground: var(--brand-forest);
-  --color-lime: var(--brand-lime);
+  --color-lime: var(--brand-lilac);
   --color-lime-foreground: var(--brand-forest);
   --color-peri: var(--brand-lilac-deep);
   --color-peri-foreground: var(--brand-forest);
   --color-orange: var(--brand-yellow-deep);
   --color-orange-foreground: var(--brand-forest);
-  --color-sky: var(--brand-sky);
+  --color-sky: var(--brand-pink-soft);
   --color-sky-foreground: var(--brand-forest);
 
   --color-peach: var(--brand-peach);
@@ -118,8 +118,6 @@
   --brand-sage: #c4d59f;
   --brand-moss: #84b55b;
   --brand-honey: #f1cf8a;
-  --brand-lime: #a8cf6b;
-  --brand-sky: #8ecae6;
 
   /* Paleta exacta de acentos puntuales, tal cual (sin aclarar/oscurecer) */
   --brand-gold: #e4a92a;

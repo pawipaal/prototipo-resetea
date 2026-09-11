@@ -249,6 +249,7 @@ export const products: Product[] = [
     description: "Pequeña, delicada y llena de significado. Esta flor, conocida por sus diminutas flores azules y su resistencia, simboliza el amor eterno y la sinceridad.",
     details: [],
     isBestseller: true,
+    isNew: true,
   },
   {
     slug: "kit-cultivo-diente-de-leon",
@@ -264,6 +265,7 @@ export const products: Product[] = [
     short: "Cultiva tu diente de león en casa con este kit completo y espera a que llegue el momento de soplar y pedir un deseo.",
     description: "Cultiva tu diente de león en casa con este kit completo y espera a que llegue el momento de soplar y pedir un deseo.",
     details: [],
+    isNew: true,
   },
   {
     slug: "salvemos-a-las-abejas",
@@ -553,6 +555,7 @@ export const products: Product[] = [
     description: "Con este terrario, crearás un ecosistema en miniatura que te permitirá llevar la esencia de un bosque a tu hogar.",
     details: [],
     isBestseller: true,
+    isNew: true,
   },
   {
     slug: "buena-suerte",
@@ -705,6 +708,7 @@ export const products: Product[] = [
     description: "Deja volar tu creatividad y crea decoraciones únicas con arcilla para tu árbol de navidad mientras disfrutas de una actividad fácil y relajante.",
     details: [],
     isBestseller: true,
+    isNew: true,
   },
   {
     slug: "kit-bombas-semillas",
@@ -720,6 +724,7 @@ export const products: Product[] = [
     short: "Crea tus propias bombas de semillas y reconecta con la tierra mientras contribuyes a hacer el mundo un poco más verde.",
     description: "Crea tus propias bombas de semillas y reconecta con la tierra mientras contribuyes a hacer el mundo un poco más verde.",
     details: [],
+    isNew: true,
   },
   {
     slug: "haz-macetas-arcilla",
@@ -735,6 +740,7 @@ export const products: Product[] = [
     short: "Crea tus propias macetas de arcilla y disfruta de una experiencia creativa, relajante y artesanal.",
     description: "Crea tus propias macetas de arcilla y disfruta de una experiencia creativa, relajante y artesanal.",
     details: [],
+    isNew: true,
   },
   {
     slug: "postal-plantable-merry-xmas",
@@ -931,3 +937,35 @@ export const productsByCategory = (slug: string) =>
 
 export const formatPrice = (value: number) =>
   new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(value);
+
+/** Baraja determinista (mismo resultado en servidor y cliente) a partir de una semilla. */
+function seededShuffle<T>(arr: T[], seed: string): T[] {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    h = (h * 1103515245 + 12345) >>> 0;
+    const j = h % (i + 1);
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+/** Lista de productos de una categoría para el panel lateral del menú de hover. */
+export const megaMenuList = (slug: string, limit = 9) =>
+  products.filter((p) => p.category === slug).slice(0, limit);
+
+/**
+ * 4 productos destacados de una categoría para el menú de hover:
+ * primero las novedades de esa categoría, y si faltan para llegar a 4,
+ * se rellena con productos al azar (orden estable) de la misma categoría.
+ */
+export const megaMenuFeatured = (slug: string) => {
+  const inCategory = products.filter((p) => p.category === slug);
+  const news = inCategory.filter((p) => p.isNew);
+  const rest = seededShuffle(
+    inCategory.filter((p) => !p.isNew),
+    slug,
+  );
+  return [...news, ...rest].slice(0, 4);
+};

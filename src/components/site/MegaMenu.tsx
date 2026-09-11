@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { megaMenuFeatured, megaMenuList, type Category } from "@/data/products";
-import { accentBg, accentText } from "./accents";
+import { categoryBg } from "./accents";
 import { cn } from "@/lib/utils";
 
 export function MegaMenu({ category }: { category: Category }) {
@@ -11,15 +11,10 @@ export function MegaMenu({ category }: { category: Category }) {
     <div
       className={cn(
         "absolute inset-x-0 top-full z-30 border-t-4 border-forest shadow-[0_16px_32px_-12px_rgba(58,37,24,0.35)]",
-        accentBg[category.accent],
+        categoryBg[category.slug] ?? "bg-cream",
       )}
     >
-      <div
-        className={cn(
-          "mx-auto grid max-w-7xl gap-10 px-4 py-8 md:grid-cols-[220px_1fr]",
-          accentText[category.accent],
-        )}
-      >
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-8 text-forest md:grid-cols-[220px_1fr]">
         <div>
           <h3 className="font-display text-xl">{category.name}</h3>
           <ul className="mt-4 space-y-2 text-sm">

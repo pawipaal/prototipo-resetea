@@ -45,3 +45,16 @@ export const accentFill: Record<Accent, string> = {
   orange: "fill-orange",
   sky: "fill-sky",
 };
+
+/**
+ * Color exacto por categoría (por slug, no por accent): se usa en la home,
+ * en la cabecera de categoría y en el mega-menú para que todos coincidan.
+ */
+export const categoryBg: Record<string, string> = {
+  gourmet: "bg-cat-gourmet",
+  "flores-y-biodiversidad": "bg-cat-flores",
+  "cultivos-para-ninos": "bg-cat-infantil",
+  "kits-originales": "bg-cat-kits-originales",
+  "kits-diy": "bg-cat-kits-diy",
+  "papeleria-plantable": "bg-cat-papeleria",
+};

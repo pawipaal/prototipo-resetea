@@ -76,7 +76,7 @@ export function Header() {
 
       {/* Fila 1: logo, buscador, cuenta y cesta */}
       <div className="bg-moss text-forest">
-        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-2">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 px-4 py-2">
           <div className="flex items-center gap-3 lg:justify-self-start">
             <button
               type="button"
@@ -92,7 +92,7 @@ export function Header() {
 
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="mx-2 hidden w-full max-w-3xl items-center justify-self-center rounded-full bg-white py-1 pr-1 pl-5 sm:flex md:mx-6 lg:max-w-none lg:justify-self-stretch"
+            className="mx-2 hidden w-full min-w-0 max-w-3xl items-center justify-self-center rounded-full bg-white py-1 pr-1 pl-5 sm:flex md:mx-6 lg:max-w-4xl lg:justify-self-stretch"
           >
             <input
               type="search"

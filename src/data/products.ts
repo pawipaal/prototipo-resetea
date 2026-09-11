@@ -55,7 +55,7 @@ export const categories: Category[] = [
     name: "Infantil",
     tagline: "Sembrar jugando",
     image: catNinos,
-    accent: "peri",
+    accent: "lime",
   },
   {
     slug: "kits-originales",

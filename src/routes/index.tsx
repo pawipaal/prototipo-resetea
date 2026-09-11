@@ -66,12 +66,12 @@ const slides = [
 ];
 
 const CATEGORY_CARD_STYLES: Record<string, { bg: string; hoverText: string }> = {
-  gourmet: { bg: "bg-peach", hoverText: "group-hover:text-terracotta" },
-  "flores-y-biodiversidad": { bg: "bg-cloud", hoverText: "group-hover:text-azure" },
-  "cultivos-para-ninos": { bg: "bg-lime", hoverText: "group-hover:text-peri" },
-  "kits-originales": { bg: "bg-sage", hoverText: "group-hover:text-moss" },
-  "kits-diy": { bg: "bg-honey", hoverText: "group-hover:text-orange" },
-  "papeleria-plantable": { bg: "bg-sky", hoverText: "group-hover:text-pink" },
+  gourmet: { bg: "bg-cat-gourmet", hoverText: "group-hover:text-terracotta" },
+  "flores-y-biodiversidad": { bg: "bg-cat-flores", hoverText: "group-hover:text-azure" },
+  "cultivos-para-ninos": { bg: "bg-cat-infantil", hoverText: "group-hover:text-peri" },
+  "kits-originales": { bg: "bg-cat-kits-originales", hoverText: "group-hover:text-moss" },
+  "kits-diy": { bg: "bg-cat-kits-diy", hoverText: "group-hover:text-orange" },
+  "papeleria-plantable": { bg: "bg-cat-papeleria", hoverText: "group-hover:text-pink" },
 };
 
 const DEFAULT_CATEGORY_CARD_STYLE = { bg: "bg-cream", hoverText: "group-hover:text-forest" };
